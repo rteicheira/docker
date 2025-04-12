@@ -7,14 +7,14 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      # WATCHTOWER_MONITOR_ONLY: true | false
-      # TZ: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-      # WATCHTOWER_INCLUDE_STOPPED: true | false
-      # WATCHTOWER_RUN_ONCE: false | true
-      # WATCHTOWER_NOTIFICATION_REPORT: true | false
-      # WATCHTOWER_SCHEDULE: cron format with seconds
-      # WATCHTOWER_NOTIFICATION_URL: discord://token@channelID
-      # WATCHTOWER_NOTIFICATION_TEMPLATE: https://containrrr.dev/watchtower/notifications/#report_templates
+      # WATCHTOWER_MONITOR_ONLY=<true | false>
+      # TZ=<https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>
+      # WATCHTOWER_INCLUDE_STOPPED=<true | false>
+      # WATCHTOWER_RUN_ONCE=<false | true>
+      # WATCHTOWER_NOTIFICATION_REPORT=<true | false>
+      # WATCHTOWER_SCHEDULE="<cron format with seconds>"
+      # WATCHTOWER_NOTIFICATION_URL=<discord://token@channelID>
+      # WATCHTOWER_NOTIFICATION_TEMPLATE=<https://containrrr.dev/watchtower/notifications/#report_templates>
       WATCHTOWER_MONITOR_ONLY: ${WATCHTOWER_MONITOR_ONLY}
       TZ: ${TZ}
       WATCHTOWER_INCLUDE_STOPPED: ${WATCHTOWER_INCLUDE_STOPPED}
