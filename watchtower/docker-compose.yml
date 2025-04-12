@@ -1,8 +1,8 @@
 services:
   watchtower:
     # Website: https://containrrr.dev/watchtower/
-    # Docker hub: https://hub.docker.com/r/containrrr/watchtower/
-    # Github: https://github.com/containrrr/watchtower
+    # Docker Hub: https://hub.docker.com/r/containrrr/watchtower/
+    # GitHub: https://github.com/containrrr/watchtower
     image: containrrr/watchtower:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
