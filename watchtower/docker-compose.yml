@@ -1,0 +1,44 @@
+services:
+  watchtower:
+    # Website: https://containrrr.dev/watchtower/
+    # Docker hub: https://hub.docker.com/r/containrrr/watchtower/
+    # Github: https://github.com/containrrr/watchtower
+    image: containrrr/watchtower:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      # WATCHTOWER_MONITOR_ONLY: true | false
+      # TZ: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      # WATCHTOWER_INCLUDE_STOPPED: true | false
+      # WATCHTOWER_RUN_ONCE: false | true
+      # WATCHTOWER_NOTIFICATION_REPORT: true | false
+      # WATCHTOWER_SCHEDULE: cron format with seconds
+      # WATCHTOWER_NOTIFICATION_URL: discord://token@channelID
+      # WATCHTOWER_NOTIFICATION_TEMPLATE: https://containrrr.dev/watchtower/notifications/#report_templates
+      WATCHTOWER_MONITOR_ONLY: ${WATCHTOWER_MONITOR_ONLY}
+      TZ: ${TZ}
+      WATCHTOWER_INCLUDE_STOPPED: ${WATCHTOWER_INCLUDE_STOPPED}
+      WATCHTOWER_RUN_ONCE: ${WATCHTOWER_RUN_ONCE}
+      WATCHTOWER_NOTIFICATION_REPORT: ${WATCHTOWER_NOTIFICATION_REPORT}
+      WATCHTOWER_SCHEDULE: ${WATCHTOWER_SCHEDULE}
+      WATCHTOWER_NOTIFICATION_URL: ${DISCORD}
+      WATCHTOWER_NOTIFICATION_TEMPLATE: |
+        {{- if .Report -}}
+          {{- with .Report -}}
+        {{len .Scanned}} Scanned, {{len .Updated}} Updated, {{len .Failed}} Failed
+              {{- range .Updated}}
+        - {{.Name}} ({{.ImageName}}): {{.CurrentImageID.ShortID}} updated to {{.LatestImageID.ShortID}}
+              {{- end -}}
+              {{- range .Fresh}}
+        - {{.Name}} ({{.ImageName}}): {{.State}}
+            {{- end -}}
+            {{- range .Skipped}}
+        - {{.Name}} ({{.ImageName}}): {{.State}}: {{.Error}}
+            {{- end -}}
+            {{- range .Failed}}
+        - {{.Name}} ({{.ImageName}}): {{.State}}: {{.Error}}
+            {{- end -}}
+          {{- end -}}
+        {{- else -}}
+          {{range .Entries -}}{{.Message}}{{"\n"}}{{- end -}}
+        {{- end -}}
