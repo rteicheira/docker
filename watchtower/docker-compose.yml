@@ -4,6 +4,7 @@ services:
     # Docker Hub: https://hub.docker.com/r/containrrr/watchtower/
     # GitHub: https://github.com/containrrr/watchtower
     image: containrrr/watchtower:latest
+    restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
