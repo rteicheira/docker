@@ -6,9 +6,9 @@ services:
     image: postgres:15-alpine
     container_name: wiki-db
     environment:
-	  # DB_PASS=<password>
-	  # DB_USER=<database user name>
-	  # DB_NAME=<database name>
+      # DB_PASS=<password>
+      # DB_USER=<database user name>
+      # DB_NAME=<database name>
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_PASSWORD: ${DB_PASS}
       POSTGRES_USER: ${DB_USER}
@@ -25,9 +25,9 @@ services:
     logging:
       driver: local
     environment:
-	  # DB_PASS=<password>
-	  # DB_USER=<database user name>
-	  # DB_NAME=<database name>
+      # DB_PASS=<password>
+      # DB_USER=<database user name>
+      # DB_NAME=<database name>
       DB_TYPE: postgres
       DB_HOST: db
       DB_PORT: 5432
