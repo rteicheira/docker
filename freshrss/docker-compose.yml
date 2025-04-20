@@ -1,0 +1,28 @@
+volumes:
+  data:
+  extensions:
+
+services:
+  freshrss:
+    # Website: https://freshrss.org/
+    # Docker Hub: https://hub.docker.com/r/freshrss/freshrss
+    # GitHub: https://github.com/FreshRSS/FreshRSS
+    image: freshrss/freshrss:latest
+    container_name: freshrss
+    hostname: freshrss
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: 100m
+    volumes:
+      - data:/var/www/FreshRSS/data
+      - extensions:/var/www/FreshRSS/extensions
+    ports:
+      - 8080:80
+    environment:
+      # TZ=<https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>
+      # CRON_MIN: <example: 1/20 (starting at 1 minute past the hour, repeat every 20 minutes>
+      # TRUSTED_PROXY: <example: 10.10.0.0/16 192.16.8.1.2>
+      TZ: ${TZ}
+      CRON_MIN: ${CRON_MIN}
+      TRUSTED_PROXY: ${TRUSTED_PROXY}
