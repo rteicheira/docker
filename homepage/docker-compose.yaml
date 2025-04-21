@@ -1,0 +1,20 @@
+services:
+  homepage:
+    # Website: https://gethomepage.dev/
+    # Docker Hub: https://hub.docker.com/r/gethomepage/homepage
+    # GitHub: https://github.com/gethomepage/homepage
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    volumes:
+      - <your local path>:/app/config # Make sure your local config directory exists
+      - <your local path>:/app/public/images # (optional) for images
+	  - <your local path>:/app/public/icons # (optional) for icons
+      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
+    environment:
+	  # HOMEPAGE_ALLOWED_HOSTS=<address you will use to access, this is REQUIRED>
+	  # TRUSTED_PROXY=<address to any proxies>
+      HOMEPAGE_ALLOWED_HOSTS: ${HOMEPAGE_ALLOWED_HOSTS}
+      TRUSTED_PROXY: ${TRUSTED_PROXY}
