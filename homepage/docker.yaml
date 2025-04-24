@@ -1,0 +1,12 @@
+# https://gethomepage.dev/configs/docker/
+
+galaxy:
+  socket: /var/run/docker.sock
+
+wanderer:
+  host: 192.168.2.5
+  port: 2375
+
+delta:
+  host: 192.168.2.4
+  port: 2375

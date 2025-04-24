@@ -1,0 +1,41 @@
+- greeting:
+    text_size: 4xl
+    text: "Skynet Homepage  "
+- resources:
+    cpu: true
+    memory: true
+    #disk: /disk/mount/path
+    cputemp: true
+    tempmin: 0 # optional, minimum cpu temp
+    tempmax: 100 # optional, maximum cpu temp
+    uptime: true
+    units: metric #imperial # only used by cpu temp, options: 'imperial' or 'metric'
+    refresh: 3000 # optional, in ms
+    #diskUnits: bytes # optional, bytes (default) or bbytes. Only applies to disk
+    #network: true # optional, uses 'default' if true or specify a network interface name
+- greeting:
+    text_size: 4xl
+    text: "      "
+- datetime:
+    text_size: 4xl
+    format:
+      timeStyle: short
+      hour12: false
+- datetime:
+    text_size: md
+    format:
+      dateStyle: long
+- openmeteo:
+    label: Clayton, CA
+    latitude: 37.937996248
+    longitude: -121.934829594
+    timezone: America/Los_Angeles
+    units: imperial
+    cache: 5 # Time in minutes to cache API responses, to stay within limits
+    format: # optional, Intl.NumberFormat options
+      maximumFractionDigits: 1
+- search:
+    provider: google
+    focus: false
+    showSearchSuggestions: false
+    target: _blank

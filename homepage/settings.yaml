@@ -1,0 +1,56 @@
+# https://gethomepage.dev/configs/settings/
+
+providers:
+  openweathermap: openweathermapapikey
+  weatherapi: weatherapiapikey
+
+# Basic Site Settings
+title: Skynet Homepage
+language: en
+theme: dark
+color: slate
+target: _blank
+statusStyle: "dot"
+#hideVersion: true
+#disableCollapse: true
+useEqualHeights: true
+
+# Site Assets
+base: http://home.skynet.local
+background:
+  image: images/background.png
+  blur: xs
+
+layout:
+  Skynet Monitoring:
+    style: row
+    columns: 4
+    Skynet1:
+      #style: row
+      #columns: 4
+      header: false
+    Skynet2:
+      #style: row
+      #columns: 4
+      header: false
+    Skynet3:
+      #style: row
+      #columns: 4
+      header: false
+    Skynet4:
+      #style: row
+      #columns: 4
+      header: false
+
+  Calendar:
+    style: row
+    columns: 4
+    header: false
+
+  Wandering Wiki:
+    style: row
+    columns: 4
+    WandereWiki:
+      header: false
+    FreshRSS:
+      header: false

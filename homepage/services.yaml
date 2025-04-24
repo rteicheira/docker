@@ -1,0 +1,159 @@
+# https://gethomepage.dev/configs/services/
+
+- Skynet Monitoring:
+  - Skynet1:
+      - Uptime Kuma:
+          href: http://kuma.skynet.local
+          icon: sh-uptime-kuma.svg
+          server: wanderer
+          container: uptime-kuma
+          widget:
+            type: uptimekuma
+            fields: ["up", "down", "uptime"]
+            url: http://kuma.skynet.local
+            slug: all
+      - External Proxy:
+          href: http://npmw.skynet.local
+          icon: sh-nginx-proxy-manager.svg
+          server: wanderer
+          container: nginxproxy-app-1
+          widget:
+            type: npm
+            fields: ["enabled", "disabled", "total"]
+            url: http://npmw.skynet.local
+            username: hi@russlt.com
+            password: 8cWPjRQF7DoUZeTQPjIe0E5TU0VXrXiHDKKHDLb22MipgJlO6TuKoG7lTvCxUmNi
+      - Internal Proxy:
+          href: http://npm.skynet.local
+          icon: sh-nginx-proxy-manager.svg
+          container: nginproxy-internal
+          widget:
+            type: npm
+            fields: ["enabled", "disabled", "total"]
+            url: http://npm.skynet.local
+            username: hi@russlt.com
+            password: 8cWPjRQF7DoUZeTQPjIe0E5TU0VXrXiHDKKHDLb22MipgJlO6TuKoG7lTvCxUmNi
+  
+  - Skynet2:
+      - Galaxy:
+          href: http://portainer.skynet.local/#!/6/docker/dashboard
+          icon: sh-portainer.svg
+          container: portainer
+          widget:
+            type: portainer
+            fields: ["running", "stopped", "total"]
+            url: http://portainer.skynet.local
+            env: 6
+            key: ptr_2tMYtu1+yBp0NkV4A2r/OOJuWsHnqSZpe5FS1x8HDxA=
+      - Wanderer (Agent):
+          href: http://portainer.skynet.local/#!/7/docker/dashboard
+          icon: sh-portainer.svg
+          server: wanderer
+          container: portainer_agent
+          widget:
+            type: portainer
+            fields: ["running", "stopped", "total"]
+            url: http://portainer.skynet.local
+            env: 7
+            key: ptr_2tMYtu1+yBp0NkV4A2r/OOJuWsHnqSZpe5FS1x8HDxA=
+      - Starbase Delta (Agent):
+          href: http://portainer.skynet.local/#!/4/docker/dashboard
+          icon: sh-portainer.svg
+          server: delta
+          container: portainer_agent
+          widget:
+            type: portainer
+            fields: ["running", "stopped", "total"]
+            url: http://portainer.skynet.local
+            env: 4
+            key: ptr_2tMYtu1+yBp0NkV4A2r/OOJuWsHnqSZpe5FS1x8HDxA=
+
+  - Skynet3:
+      - Starbase Delta (Primary DNS):
+          href: http://starbase-delta.local/admin
+          icon: sh-pi-hole.svg
+          widget:
+            type: pihole
+            fields: ["queries", "blocked", "blocked_percent", "gravity"]
+            url: http://starbase-delta.local
+            version: 6
+            key: IkXscfIkM8ApW9tbFOENqCJYuheQhak9zWJBRs03+gc=
+      - Starbase Epsilon (Secondary DNS):
+          href: http://starbase-epsilon.skynet.local
+          icon: sh-pi-hole.svg
+          container: pihole
+          widget:
+            type: pihole
+            fields: ["queries", "blocked", "blocked_percent", "gravity"]
+            url: http://starbase-epsilon.skynet.local
+            version: 6
+            key: QzvVvJtSGARQ1IzmED2xDzkvC0M2ckx7LgsCcCgTNw8=
+      - Nebula Sync:
+          icon: sh-pi-hole.svg
+          server: delta
+          container: nebula-sync
+      - IT Tools:
+          href: http://ittools.skynet.local
+          icon: sh-it-tools.svg
+          server: galaxy
+          container: ittools
+
+  - Skynet4:
+      - Watchtower - Galaxy:
+          icon: sh-watchtower.svg
+          server: galaxy
+          container: watchtower-watchtower-1
+      - Watchtower - Wanderer:
+          icon: sh-watchtower.svg
+          server: wanderer
+          container: watchtower-watchtower-1
+      - Watchtower - Delta:
+          icon: sh-watchtower.svg
+          server: delta
+          container: watchtower-watchtower-1
+
+- Calendar:
+  - Calendar:
+      widget:
+        type: calendar
+        firstDayInWeek: sunday
+        maxEvents: none
+        view: monthly
+        integrations:
+          - type: ical
+            url: https://calendar.google.com/calendar/ical/russ.teicheira%40gmail.com/private-ca5046493844732a7904dac90fbbcd52/basic.ics
+            name: Calendar
+
+  - Agenda:
+      widget:
+        type: calendar
+        view: agenda
+        showTime: true
+        maxEvents: 10
+        integrations:
+         - type: ical
+           url: https://calendar.google.com/calendar/ical/russ.teicheira%40gmail.com/private-ca5046493844732a7904dac90fbbcd52/basic.ics
+           name: Agenda
+
+- Wandering Wiki:
+  - WandereWiki:
+      - Wiki:
+          icon: sh-wiki-js.svg
+          href: http://wiki.russlt.com
+          server: wanderer
+          container: wiki-wiki-1
+      - Database:
+          icon: sh-postgresql.svg
+          server: wanderer
+          container: wiki-db
+
+  - FreshRSS:
+    - Skynet RSS Reader:
+        href: https://rss.russlt.com
+        icon: sh-freshrss.svg
+        widget:
+          type: freshrss
+          fields: ["subscriptions", "unread"]
+          url: http://rss.skynet.local
+          username: rteicheira
+          password: DerJ#su#RPihVwtH5jwNp5ciCCZrIP53@$vd3Fou9A#n1vkhc1jZSN8$FGp2cdXW

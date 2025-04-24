@@ -1,0 +1,54 @@
+# https://gethomepage.dev/configs/bookmarks
+
+- My Portfolios:
+    - Github:
+        - icon: sh-github-light.svg
+          href: https://github.com/rteicheira/docker
+    - RussTeicheira.net:
+        - abbr: RT
+          href: https://russteicheira.net
+    - Wandering Wiki:
+        - icon: sh-wiki-js.svg
+          href: https://wiki.russlt.com
+    - VVarMachine:
+        - abbr: VAR
+          href: https://vvarmachine.com
+
+- Skynet:
+    - Cloudflare:
+        - icon: sh-cloudflare.svg
+          href: https://www.cloudflare.com/
+    - IT-Tools:
+        - icon: sh-it-tools.svg
+          href: https://ittools.russlt.com/
+
+- Freelance:
+    - A Step Forward, Inc.:
+        - abbr: ASF
+          href: https://astepforwardinc.com
+    - Carrum Health:
+        - abbr: CH
+          href: https://carrumhealth.com
+    - Pantheon:
+        - abbr: PAN
+          href: https://pantheon.io/
+    - UV Pure:
+      - abbr: UVP
+        href: https://uvpure.com
+
+- A.A.:
+    - AA.org:
+        - abbr: AA
+          href: https://aa.org/
+    - A.A. Grapevine:
+        - abbr: AAG
+          href: https://www.aagrapevine.org/
+    - CNCA 06:
+        - abbr: A06
+          href: https://www.cnca06.org/
+    - CNCA 06 District 08:
+        - abbr: D08
+          href: https://district08cnca.org/
+    - Get Sober, Win Prizes!:
+        - abbr: GSW
+          href: https://getsoberwinprizes.com/
