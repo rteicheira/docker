@@ -26,9 +26,9 @@
     format:
       dateStyle: long
 - openmeteo:
-    label: Clayton, CA
-    latitude: 37.937996248
-    longitude: -121.934829594
+    label: <private>
+    latitude: <private>
+    longitude: <private>
     timezone: America/Los_Angeles
     units: imperial
     cache: 5 # Time in minutes to cache API responses, to stay within limits

@@ -21,8 +21,8 @@
             type: npm
             fields: ["enabled", "disabled", "total"]
             url: http://npmw.skynet.local
-            username: hi@russlt.com
-            password: 8cWPjRQF7DoUZeTQPjIe0E5TU0VXrXiHDKKHDLb22MipgJlO6TuKoG7lTvCxUmNi
+            username: <key>
+            password: <password>
       - Internal Proxy:
           href: http://npm.skynet.local
           icon: sh-nginx-proxy-manager.svg
@@ -31,8 +31,8 @@
             type: npm
             fields: ["enabled", "disabled", "total"]
             url: http://npm.skynet.local
-            username: hi@russlt.com
-            password: 8cWPjRQF7DoUZeTQPjIe0E5TU0VXrXiHDKKHDLb22MipgJlO6TuKoG7lTvCxUmNi
+            username: <key>
+            password: <password>
   
   - Skynet2:
       - Galaxy:
@@ -44,7 +44,7 @@
             fields: ["running", "stopped", "total"]
             url: http://portainer.skynet.local
             env: 6
-            key: ptr_2tMYtu1+yBp0NkV4A2r/OOJuWsHnqSZpe5FS1x8HDxA=
+            key: <key>
       - Wanderer (Agent):
           href: http://portainer.skynet.local/#!/7/docker/dashboard
           icon: sh-portainer.svg
@@ -55,7 +55,7 @@
             fields: ["running", "stopped", "total"]
             url: http://portainer.skynet.local
             env: 7
-            key: ptr_2tMYtu1+yBp0NkV4A2r/OOJuWsHnqSZpe5FS1x8HDxA=
+            key: <key>
       - Starbase Delta (Agent):
           href: http://portainer.skynet.local/#!/4/docker/dashboard
           icon: sh-portainer.svg
@@ -66,7 +66,7 @@
             fields: ["running", "stopped", "total"]
             url: http://portainer.skynet.local
             env: 4
-            key: ptr_2tMYtu1+yBp0NkV4A2r/OOJuWsHnqSZpe5FS1x8HDxA=
+            key: <key>
 
   - Skynet3:
       - Starbase Delta (Primary DNS):
@@ -77,7 +77,7 @@
             fields: ["queries", "blocked", "blocked_percent", "gravity"]
             url: http://starbase-delta.local
             version: 6
-            key: IkXscfIkM8ApW9tbFOENqCJYuheQhak9zWJBRs03+gc=
+            key: <key>
       - Starbase Epsilon (Secondary DNS):
           href: http://starbase-epsilon.skynet.local
           icon: sh-pi-hole.svg
@@ -87,7 +87,7 @@
             fields: ["queries", "blocked", "blocked_percent", "gravity"]
             url: http://starbase-epsilon.skynet.local
             version: 6
-            key: QzvVvJtSGARQ1IzmED2xDzkvC0M2ckx7LgsCcCgTNw8=
+            key: <key>
       - Nebula Sync:
           icon: sh-pi-hole.svg
           server: delta
@@ -121,7 +121,7 @@
         view: monthly
         integrations:
           - type: ical
-            url: https://calendar.google.com/calendar/ical/russ.teicheira%40gmail.com/private-ca5046493844732a7904dac90fbbcd52/basic.ics
+            url: <private ical>
             name: Calendar
 
   - Agenda:
@@ -132,7 +132,7 @@
         maxEvents: 10
         integrations:
          - type: ical
-           url: https://calendar.google.com/calendar/ical/russ.teicheira%40gmail.com/private-ca5046493844732a7904dac90fbbcd52/basic.ics
+           url: <private ical>
            name: Agenda
 
 - Wandering Wiki:
@@ -154,6 +154,6 @@
         widget:
           type: freshrss
           fields: ["subscriptions", "unread"]
-          url: http://rss.skynet.local
-          username: rteicheira
-          password: DerJ#su#RPihVwtH5jwNp5ciCCZrIP53@$vd3Fou9A#n1vkhc1jZSN8$FGp2cdXW
+          url: http://rss.russlt.com
+          username: <username>
+          password: <key>
