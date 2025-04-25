@@ -5,16 +5,19 @@ services:
     # GitHub: https://github.com/gethomepage/homepage
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
+    hostname: homepage
     restart: unless-stopped
-    ports:
-      - 3000:3000
+    #ports:
+      #- 3000:3000
     volumes:
-      - <your local path>:/app/config # Make sure your local config directory exists
-      - <your local path>:/app/public/images # (optional) for images
-	  - <your local path>:/app/public/icons # (optional) for icons
+      - /<location>/docker/homepage:/app/config # Make sure your local config directory exists
+      - /<location>/docker/homepage/images:/app/public/images # images folder
+      - /<location>/docker/homepage/images/icons:/app/public/icons # icons folder
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
     environment:
-	  # HOMEPAGE_ALLOWED_HOSTS=<address you will use to access, this is REQUIRED>
-	  # TRUSTED_PROXY=<address to any proxies>
       HOMEPAGE_ALLOWED_HOSTS: ${HOMEPAGE_ALLOWED_HOSTS}
-      TRUSTED_PROXY: ${TRUSTED_PROXY}
+
+networks:
+  default:
+    external: true
+    name: nginprox

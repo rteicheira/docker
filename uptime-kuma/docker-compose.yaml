@@ -1,0 +1,12 @@
+services:
+  uptime-kuma:
+    # Website: https://uptime.kuma.pet/
+    # Docker Hub: https://hub.docker.com/r/louislam/uptime-kuma
+    # GitHub: https://github.com/louislam/uptime-kuma
+    image: 'louislam/uptime-kuma:latest'
+    container_name: uptime-kuma
+    restart: always
+    ports:
+      - 3001:3001
+    volumes:
+      - /var/lib/docker/volumes/uptime-kuma/_data:/app/data

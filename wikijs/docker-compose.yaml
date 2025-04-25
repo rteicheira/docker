@@ -4,40 +4,35 @@ services:
     # Docker Hub: https://hub.docker.com/r/requarks/wiki
     # GitHub: https://github.com/requarks/wiki
     image: postgres:15-alpine
-    container_name: wiki-db
-    environment:
-      # DB_PASS=<password>
-      # DB_USER=<database user name>
-      # DB_NAME=<database name>
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_PASSWORD: ${DB_PASS}
-      POSTGRES_USER: ${DB_USER}
-    logging:
-      driver: local
+    container_name: wikijs-db
     restart: unless-stopped
     volumes:
       - db-data:/var/lib/postgresql/data
+    logging:
+      driver: local
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_USER: ${DB_USER}
 
   wiki:
     image: ghcr.io/requarks/wiki:2
+    container_name: wikijs-wiki
+    restart: unless-stopped
+    ports:
+      - "8080:3000"
+      - "3443:3443"
     depends_on:
       - db
     logging:
       driver: local
     environment:
-      # DB_PASS=<password>
-      # DB_USER=<database user name>
-      # DB_NAME=<database name>
       DB_TYPE: postgres
       DB_HOST: db
       DB_PORT: 5432
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}
       DB_NAME: ${DB_NAME}
-    restart: unless-stopped
-    ports:
-      - "8080:3000"
-      - "3443:3443"
 
 volumes:
   db-data:

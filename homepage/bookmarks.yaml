@@ -1,7 +1,7 @@
 # https://gethomepage.dev/configs/bookmarks
 
 - My Portfolios:
-    - Github:
+    - GitHub:
         - icon: sh-github-light.svg
           href: https://github.com/rteicheira/docker
     - RussTeicheira.net:
@@ -11,13 +11,16 @@
         - icon: sh-wiki-js.svg
           href: https://wiki.russlt.com
     - VVarMachine:
-        - abbr: VAR
+        - icon: /icons/vvar.png
           href: https://vvarmachine.com
 
 - Skynet:
     - Cloudflare:
         - icon: sh-cloudflare.svg
-          href: https://www.cloudflare.com/
+          href: https://cloudflare.com/
+    - Portainer:
+        - icon: sh-portainer.svg
+          href: https://portainer.skynet.local/
     - IT-Tools:
         - icon: sh-it-tools.svg
           href: https://ittools.russlt.com/
@@ -33,8 +36,8 @@
         - abbr: PAN
           href: https://pantheon.io/
     - UV Pure:
-      - abbr: UVP
-        href: https://uvpure.com
+        - abbr: UVP
+          href: https://uvpure.com
 
 - A.A.:
     - AA.org:

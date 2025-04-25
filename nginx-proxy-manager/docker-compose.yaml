@@ -4,23 +4,18 @@ services:
     # Docker Hub: https://hub.docker.com/r/jc21/nginx-proxy-manager
     # GitHub: https://github.com/NginxProxyManager/nginx-proxy-manager
     image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginproxy
     restart: unless-stopped
     ports:
-      # These ports are in format <host-port>:<container-port>
-      - '80:80' # Public HTTP Port
-      - '443:443' # Public HTTPS Port
-      - '81:81' # Admin Web Port
-      # Add any other Stream port you want to expose
-      # - '21:21' # FTP
-
-    environment:
-      # Uncomment this if IPv6 is not enabled on your host
-      DISABLE_IPV6: 'true'
-      X_FRAME_OPTIONS: "sameorigin"
-
+      - '80:80'
+      - '443:443'
+      - '81:81'
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
+    environment:
+      DISABLE_IPV6: 'true'
+      X_FRAME_OPTIONS: "sameorigin"
 
 networks:
   default:

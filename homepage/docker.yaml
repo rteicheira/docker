@@ -4,9 +4,9 @@ galaxy:
   socket: /var/run/docker.sock
 
 wanderer:
-  host: 192.168.2.5
+  host: <secret>
   port: 2375
 
 delta:
-  host: 192.168.2.4
+  host: <secret>
   port: 2375

@@ -3,7 +3,7 @@
 - Skynet Monitoring:
   - Skynet1:
       - Uptime Kuma:
-          href: http://kuma.skynet.local
+          href: http://kuma.russlt.com
           icon: sh-uptime-kuma.svg
           server: wanderer
           container: uptime-kuma
@@ -16,23 +16,23 @@
           href: http://npmw.skynet.local
           icon: sh-nginx-proxy-manager.svg
           server: wanderer
-          container: nginxproxy-app-1
+          container: nginproxy
           widget:
             type: npm
             fields: ["enabled", "disabled", "total"]
             url: http://npmw.skynet.local
-            username: <key>
-            password: <password>
+            username: <secret>
+            password: <secret>
       - Internal Proxy:
           href: http://npm.skynet.local
           icon: sh-nginx-proxy-manager.svg
-          container: nginproxy-internal
+          container: nginproxy
           widget:
             type: npm
             fields: ["enabled", "disabled", "total"]
             url: http://npm.skynet.local
-            username: <key>
-            password: <password>
+            username: <secret>
+            password: <secret>
   
   - Skynet2:
       - Galaxy:
@@ -44,7 +44,7 @@
             fields: ["running", "stopped", "total"]
             url: http://portainer.skynet.local
             env: 6
-            key: <key>
+            key: <secret>
       - Wanderer (Agent):
           href: http://portainer.skynet.local/#!/7/docker/dashboard
           icon: sh-portainer.svg
@@ -55,7 +55,7 @@
             fields: ["running", "stopped", "total"]
             url: http://portainer.skynet.local
             env: 7
-            key: <key>
+            key: <secret>
       - Starbase Delta (Agent):
           href: http://portainer.skynet.local/#!/4/docker/dashboard
           icon: sh-portainer.svg
@@ -66,7 +66,7 @@
             fields: ["running", "stopped", "total"]
             url: http://portainer.skynet.local
             env: 4
-            key: <key>
+            key: <secret>
 
   - Skynet3:
       - Starbase Delta (Primary DNS):
@@ -77,7 +77,7 @@
             fields: ["queries", "blocked", "blocked_percent", "gravity"]
             url: http://starbase-delta.local
             version: 6
-            key: <key>
+            key: <secret>
       - Starbase Epsilon (Secondary DNS):
           href: http://starbase-epsilon.skynet.local
           icon: sh-pi-hole.svg
@@ -87,7 +87,7 @@
             fields: ["queries", "blocked", "blocked_percent", "gravity"]
             url: http://starbase-epsilon.skynet.local
             version: 6
-            key: <key>
+            key: <secret>
       - Nebula Sync:
           icon: sh-pi-hole.svg
           server: delta
@@ -102,15 +102,15 @@
       - Watchtower - Galaxy:
           icon: sh-watchtower.svg
           server: galaxy
-          container: watchtower-watchtower-1
+          container: watchtower
       - Watchtower - Wanderer:
           icon: sh-watchtower.svg
           server: wanderer
-          container: watchtower-watchtower-1
+          container: watchtower
       - Watchtower - Delta:
           icon: sh-watchtower.svg
           server: delta
-          container: watchtower-watchtower-1
+          container: watchtower
 
 - Calendar:
   - Calendar:
@@ -121,7 +121,7 @@
         view: monthly
         integrations:
           - type: ical
-            url: <private ical>
+            url: <secret>
             name: Calendar
 
   - Agenda:
@@ -132,7 +132,7 @@
         maxEvents: 10
         integrations:
          - type: ical
-           url: <private ical>
+           url: <secret>
            name: Agenda
 
 - Wandering Wiki:
@@ -141,11 +141,11 @@
           icon: sh-wiki-js.svg
           href: http://wiki.russlt.com
           server: wanderer
-          container: wiki-wiki-1
+          container: wikijs-wiki
       - Database:
           icon: sh-postgresql.svg
           server: wanderer
-          container: wiki-db
+          container: wikijs-db
 
   - FreshRSS:
     - Skynet RSS Reader:
@@ -154,6 +154,6 @@
         widget:
           type: freshrss
           fields: ["subscriptions", "unread"]
-          url: http://rss.russlt.com
-          username: <username>
-          password: <key>
+          url: http://rss.skynet.local
+          username: <secret>
+          password: <secret>
