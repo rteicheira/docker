@@ -1,6 +1,6 @@
 # https://gethomepage.dev/configs/services/
 
-- Skynet Monitoring:
+- Skynet Services:
   - Skynet1:
       - Uptime Kuma:
           href: http://kuma.russlt.com
@@ -12,18 +12,7 @@
             fields: ["up", "down", "uptime"]
             url: http://kuma.skynet.local
             slug: all
-      - External Proxy:
-          href: http://npmw.skynet.local
-          icon: sh-nginx-proxy-manager.svg
-          server: wanderer
-          container: nginproxy
-          widget:
-            type: npm
-            fields: ["enabled", "disabled", "total"]
-            url: http://npmw.skynet.local
-            username: <secret>
-            password: <secret>
-      - Internal Proxy:
+      - Proxy:
           href: http://npm.skynet.local
           icon: sh-nginx-proxy-manager.svg
           container: nginproxy
@@ -33,6 +22,15 @@
             url: http://npm.skynet.local
             username: <secret>
             password: <secret>
+      - Wondering Wiki:
+          icon: sh-wiki-js.svg
+          href: http://wiki.russlt.com
+          server: wanderer
+          container: wikijs-wiki
+      - Wiki Database:
+          icon: sh-postgresql.svg
+          server: wanderer
+          container: wikijs-db
   
   - Skynet2:
       - Galaxy:
@@ -93,7 +91,7 @@
           server: delta
           container: nebula-sync
       - IT Tools:
-          href: http://ittools.skynet.local
+          href: http://ittools.russlt.com
           icon: sh-it-tools.svg
           server: galaxy
           container: ittools
@@ -111,6 +109,16 @@
           icon: sh-watchtower.svg
           server: delta
           container: watchtower
+      - Skynet Reader:
+          href: https://rss.russlt.com
+          icon: sh-freshrss.svg
+          container: freshrss
+          widget:
+            type: freshrss
+            fields: ["subscriptions", "unread"]
+            url: http://rss.skynet.local
+            username: <secret>
+            password: <secret>
 
 - Calendar:
   - Calendar:
@@ -123,7 +131,6 @@
           - type: ical
             url: <secret>
             name: Calendar
-
   - Agenda:
       widget:
         type: calendar
@@ -135,25 +142,48 @@
            url: <secret>
            name: Agenda
 
-- Wandering Wiki:
-  - WandereWiki:
-      - Wiki:
-          icon: sh-wiki-js.svg
-          href: http://wiki.russlt.com
-          server: wanderer
-          container: wikijs-wiki
-      - Database:
-          icon: sh-postgresql.svg
-          server: wanderer
-          container: wikijs-db
-
-  - FreshRSS:
-    - Skynet RSS Reader:
-        href: https://rss.russlt.com
-        icon: sh-freshrss.svg
-        widget:
-          type: freshrss
-          fields: ["subscriptions", "unread"]
-          url: http://rss.skynet.local
-          username: <secret>
-          password: <secret>
+- Bitwarden:
+    - Web:
+        icon: sh-web-check.png
+        server: galaxy
+        container: bitwarden-web
+    - Admin:
+        icon: sh-bitwarden.svg
+        server: galaxy
+        container: bitwarden-admin
+    - Nginx:
+        icon: sh-nginx.svg
+        server: galaxy
+        container: bitwarden-nginx
+    - API:
+        icon: sh-microsoft-azure.svg
+        server: galaxy
+        container: bitwarden-api
+    - Events:
+        icon: sh-nextcloud-calendar.svg
+        server: galaxy
+        container: bitwarden-events
+    - Icons:
+        icon: sh-hashicorp-vault.svg
+        server: galaxy
+        container: bitwarden-icons
+    - Identity:
+        icon: sh-google.svg
+        server: galaxy
+        container: bitwarden-identity
+    - MSSQL:
+        icon: sh-mysql.svg
+        server: galaxy
+        container: bitwarden-mssql
+    - Notifications:
+        icon: sh-notifiarr.png
+        server: galaxy
+        container: bitwarden-notifications
+    - Attachments:
+        icon: sh-papra.svg
+        server: galaxy
+        container: bitwarden-attachments
+    - SSO:
+        icon: sh-microsoft.svg
+        server: galaxy
+        container: bitwarden-sso
