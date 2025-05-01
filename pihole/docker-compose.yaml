@@ -1,25 +1,37 @@
-# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 services:
   pihole:
-    # Website: https://pi-hole.net/
-    # Docker Hub: https://hub.docker.com/r/pihole/pihole
-    # GitHub: https://github.com/pi-hole/docker-pi-hole
-    image: pihole/pihole:latest
     container_name: pihole
     hostname: starbase-epsilon
-    restart: unless-stopped
+    image: pihole/pihole:latest
     ports:
       - "53:53/tcp"
       - "53:53/udp"
-      - "8008:80/tcp"
-      - "4438:443/tcp"
+      #- "8008:80/tcp"
+      #- "4438:443/tcp"
     environment:
-      FTLCONF_webserver_api_password: ${FTLCONF_webserver_api_password}
       TZ: ${TZ}
+      #FTLCONF_webserver_api_password: ${FTLCONF_webserver_api_password} # Only needed on first load
       FTLCONF_webserver_session_timeout: ${FTLCONF_webserver_session_timeout}
+      FTLCONF_webserver_api_app_sudo: ${FTLCONF_webserver_api_app_sudo}
+      FTLCONF_dns_upstreams: ${FTLCONF_dns_upstreams}
+      FTLCONF_dns_domain: ${FTLCONF_dns_domain}
+      FTLCONF_dns_dnssec: ${FTLCONF_dns_dnssec}
+      FTLCONF_dns_rateLimit_count: ${FTLCONF_dns_rateLimit_count}
+      FTLCONF_dns_ignoreLocalhost: ${FTLCONF_dns_ignoreLocalhost}
+      FTLCONF_dns_listeningMode: ${FTLCONF_dns_listeningMode}
     volumes:
       - './etc-pihole:/etc/pihole'
     cap_add:
-      - NET_ADMIN
-      - SYS_TIME
       - SYS_NICE
+    restart: unless-stopped
+    networks:
+      - default
+      - nginprox
+
+networks:
+  default:
+    external: true
+    name: pihole_default  
+  nginprox:
+    external: true
+    name: nginprox
