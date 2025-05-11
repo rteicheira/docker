@@ -1,8 +1,9 @@
+# Website: https://uptime.kuma.pet/
+# Container: https://hub.docker.com/r/louislam/uptime-kuma
+# GitHub: https://github.com/louislam/uptime-kuma
+
 services:
   uptime-kuma:
-    # Website: https://uptime.kuma.pet/
-    # Docker Hub: https://hub.docker.com/r/louislam/uptime-kuma
-    # GitHub: https://github.com/louislam/uptime-kuma
     image: 'louislam/uptime-kuma:latest'
     container_name: uptime-kuma
     restart: always
