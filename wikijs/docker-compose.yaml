@@ -1,8 +1,9 @@
+# Website: https://js.wiki/
+# Container: https://hub.docker.com/r/requarks/wiki
+# GitHub: https://github.com/requarks/wiki
+
 services:
   db:
-    # Website: https://js.wiki/
-    # Docker Hub: https://hub.docker.com/r/requarks/wiki
-    # GitHub: https://github.com/requarks/wiki
     image: postgres:15-alpine
     container_name: wikijs-db
     restart: unless-stopped
