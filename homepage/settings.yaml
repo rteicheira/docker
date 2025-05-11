@@ -14,6 +14,7 @@ statusStyle: "dot"
 useEqualHeights: true
 maxBookmarkGroupColumns: 4
 headerStyle: boxed
+groupsInitiallyCollapsed: false
 
 # Site Assets
 base: http://home.skynet.local
@@ -22,7 +23,7 @@ background:
   blur: xs
 
 layout:
-  Skynet Services:
+  Skynet services:
     style: row
     columns: 4
     Skynet1:
@@ -34,10 +35,18 @@ layout:
     Skynet4:
       header: false
 
-  Calendar:
+  Row2:
     style: row
     columns: 4
     header: false
+    Col1:
+      header: false
+    Col2:
+      header: false
+    Col3:
+      header: false
+    Col4:
+      header: false
 
   Bitwarden:
     style: row
