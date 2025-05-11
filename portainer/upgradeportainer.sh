@@ -3,9 +3,9 @@
 ##########
 # Filename: upgradeportainer.sh
 # Location: $HOME/docker/portainer
-# Date updated: May 08, 2025
+# Date updated: May 11, 2025
 #
-# Upgrades the Portainer console and agent.
+# Upgrades the Portainer agent. If you are running from an account not part of the Docker usegroup, you will need to add sudo before the commands.
 ##########
 
 # Pull the latest Portainer container
