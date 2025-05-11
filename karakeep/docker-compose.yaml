@@ -1,8 +1,9 @@
+# Website: https://docs.karakeep.app/
+# Container: https://ghcr.io/karakeep-app/karakeep
+# GitHub: https://github.com/karakeep-app/karakeep
+
 services:
   web:
-    # Website: https://docs.karakeep.app/
-    # Docker container: https://ghcr.io/karakeep-app/karakeep
-    # GitHub: https://github.com/karakeep-app/karakeep
     image: ghcr.io/karakeep-app/karakeep:${KARAKEEP_VERSION:-release}
     container_name: karakeep_web
     restart: unless-stopped
