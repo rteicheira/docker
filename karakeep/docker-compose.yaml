@@ -1,0 +1,60 @@
+services:
+  web:
+    # Website: https://docs.karakeep.app/
+    # Docker container: https://ghcr.io/karakeep-app/karakeep
+    # GitHub: https://github.com/karakeep-app/karakeep
+    image: ghcr.io/karakeep-app/karakeep:${KARAKEEP_VERSION:-release}
+    container_name: karakeep_web
+    restart: unless-stopped
+    volumes:
+      - <dir>:/data
+    #ports:
+      #- 3000:3000 # Behind a reverse proxy
+    environment:
+      MEILI_ADDR: http://meilisearch:7700
+      BROWSER_WEB_URL: http://chrome:9222
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+      NEXTAUTH_URL: ${NEXTAUTH_URL}
+      DISABLE_SIGNUPS: ${DISABLE_SIGNUPS}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      DATA_DIR: /data # DON'T CHANGE THIS
+
+  chrome:
+    image: gcr.io/zenika-hub/alpine-chrome:123
+    container_name: karakeep_chrome
+    restart: unless-stopped
+    command:
+      - --no-sandbox
+      - --disable-gpu
+      - --disable-dev-shm-usage
+      - --remote-debugging-address=0.0.0.0
+      - --remote-debugging-port=9222
+      - --hide-scrollbars
+    environment:
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+      NEXTAUTH_URL: ${NEXTAUTH_URL}
+      DISABLE_SIGNUPS: ${DISABLE_SIGNUPS}
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.13.3
+    container_name: karakeep_meilisearch
+    restart: unless-stopped
+    environment:
+      MEILI_NO_ANALYTICS: "true"
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+      NEXTAUTH_URL: ${NEXTAUTH_URL}
+      DISABLE_SIGNUPS: ${DISABLE_SIGNUPS}
+    volumes:
+      - <dir>:/meili_data
+
+volumes:
+  meilisearch:
+  data:
+
+networks:
+  default:
+    external: true
+    name: nginprox
