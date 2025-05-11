@@ -1,8 +1,9 @@
+# Website: https://containrrr.dev/watchtower/
+# Docker Hub: https://hub.docker.com/r/containrrr/watchtower/
+# GitHub: https://github.com/containrrr/watchtower
+
 services:
   watchtower:
-    # Website: https://containrrr.dev/watchtower/
-    # Docker Hub: https://hub.docker.com/r/containrrr/watchtower/
-    # GitHub: https://github.com/containrrr/watchtower
     image: containrrr/watchtower:latest
     container_name: watchtower
     restart: unless-stopped
