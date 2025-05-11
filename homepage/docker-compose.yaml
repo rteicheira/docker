@@ -1,8 +1,10 @@
+# Website: https://gethomepage.dev/
+# Container: https://ghcr.io/gethomepage/homepage
+# GitHub: https://github.com/gethomepage/homepage
+
+
 services:
   homepage:
-    # Website: https://gethomepage.dev/
-    # Docker Hub: https://hub.docker.com/r/gethomepage/homepage
-    # GitHub: https://github.com/gethomepage/homepage
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     hostname: homepage
