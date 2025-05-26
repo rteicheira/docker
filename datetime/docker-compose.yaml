@@ -1,0 +1,16 @@
+# Website: https://datetime.app/
+# Container: https://ghcr.io/airyland/datetime.app
+# GitHub: https://github.com/airyland/datetime.app
+
+services:
+  datetime.app:
+    container_name: datetime
+    image: ghcr.io/airyland/datetime.app:latest
+    #ports:
+    #  - 3000:3000
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: nginprox

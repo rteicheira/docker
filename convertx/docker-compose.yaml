@@ -1,0 +1,20 @@
+# Website: https://crazymax.dev/diun/
+# Container: https://ghcr.io/c4illin/convertx
+# GitHub: https://github.com/C4illin/ConvertX
+
+services:
+  convertx: 
+    image: ghcr.io/c4illin/convertx
+    container_name: convertx
+    restart: unless-stopped
+    #ports:
+    #  - "3000:3000"
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+    volumes:
+      - <dir>:/app/data
+
+networks:
+  default:
+    external: true
+    name: nginprox

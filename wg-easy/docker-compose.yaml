@@ -1,0 +1,47 @@
+# Website: n/a
+# Container: https://ghcr.io/wg-easy/wg-easy
+# GitHub: https://github.com/wg-easy/wg-easy
+
+services:
+  wg-easy:
+    image: ghcr.io/wg-easy/wg-easy
+    container_name: wg-easy
+    restart: unless-stopped
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv4.conf.all.src_valid_mark=1
+    cap_add:
+      - SYS_MODULE
+      - NET_ADMIN
+    ports:
+      - "51820:51820/udp"
+      #- "51821:51821/tcp"
+    volumes:
+      - etc_wireguard:/etc/wireguard
+    environment:
+      WG_PORT: ${WG_PORT}
+      PORT: ${PORT}
+      PASSWORD_HASH: ${PASSWORD_HASH}
+      WG_DEFAULT_DNS: ${WG_DEFAULT_DNS}
+      WG_HOST: ${WG_HOST}
+      LANG: ${LANG}
+      WG_MTU: ${WG_MTU}
+      WG_PERSISTENT_KEEPALIVE: ${WG_PERSISTENT_KEEPALIVE}
+      UI_TRAFFIC_STATS: ${UI_TRAFFIC_STATS}
+      UI_CHART_TYPE: ${UI_CHART_TYPE}
+      WG_ALLOWED_IPS: ${WG_ALLOWED_IPS}
+      WG_DEVICE: ${WG_DEVICE}
+    networks:
+      - default
+      - nginprox
+
+volumes:
+  etc_wireguard:
+
+networks:
+  default: 
+    external: true
+    name: wg-easy_default
+  nginprox:
+    external: true
+    name: nginprox

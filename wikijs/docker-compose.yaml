@@ -1,5 +1,7 @@
 # Website: https://js.wiki/
-# Container: https://hub.docker.com/r/requarks/wiki
+# Container: 
+#  - Wiki: https://hub.docker.com/r/requarks/wiki
+#  - DB: https://hub.docker.com/r/postgres:15-alpine
 # GitHub: https://github.com/requarks/wiki
 
 services:

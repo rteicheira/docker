@@ -2,7 +2,6 @@
 # Container: https://ghcr.io/gethomepage/homepage
 # GitHub: https://github.com/gethomepage/homepage
 
-
 services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest

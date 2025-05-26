@@ -1,0 +1,16 @@
+# Website: https://it-tools.tech/
+# Container: https://hub.docker.com/r/corentinth/it-tools
+# GitHub: https://github.com/CorentinTh/it-tools
+
+services:
+  it-tools:
+    image: 'corentinth/it-tools:latest'
+    container_name: ittools
+    restart: unless-stopped
+    #ports:
+    #  - '8080:80'
+
+networks:
+  default:
+    external: true
+    name: nginprox
