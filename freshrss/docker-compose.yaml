@@ -11,20 +11,17 @@ services:
     #ports:
       #- 8080:80
     volumes:
-      - data:/var/www/FreshRSS/data
-      - extensions:/var/www/FreshRSS/extensions
+      - <dir>:/var/www/FreshRSS/data
+      - <dir>:/var/www/FreshRSS/extensions
     logging:
       options:
         max-size: 100m
-
     environment:
       TZ: ${TZ}
       CRON_MIN: ${CRON_MIN}
       TRUSTED_PROXY: ${TRUSTED_PROXY}
-
     networks:
       - default
-      #- fresh
 
 volumes:
   data:
@@ -34,7 +31,3 @@ networks:
   default:
     external: true
     name: nginprox
-  #fresh:
-    #external: true
-    #name: freshrss_default
-  

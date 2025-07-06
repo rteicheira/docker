@@ -13,8 +13,8 @@ services:
       - '443:443' # Public HTTPS Port
       - '81:81' # Admin Web Port
     volumes:
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
+      - <dir>:/data
+      - <dir>:/etc/letsencrypt
     environment:
       DISABLE_IPV6: 'true'
       X_FRAME_OPTIONS: "sameorigin"

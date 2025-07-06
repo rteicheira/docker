@@ -11,6 +11,7 @@ services:
     #  - "3000:3000"
     environment:
       JWT_SECRET: ${JWT_SECRET}
+      HTTP_ALLOWED: ${HTTP_ALLOWED}
     volumes:
       - <dir>:/app/data
 

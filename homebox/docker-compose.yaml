@@ -1,0 +1,28 @@
+# Website: https://homebox.software/en
+# Container: https://ghcr.io/sysadminsmedia/homebox
+# GitHub: https://github.com/sysadminsmedia/homebox
+
+services:
+  homebox:
+    image: ghcr.io/sysadminsmedia/homebox:latest
+    container_name: homebox
+    restart: unless-stopped
+    environment:
+      HBOX_LOG_LEVEL: ${HBOX_LOG_LEVEL}
+      HBOX_LOG_FORMAT: ${HBOX_LOG_FORMAT}
+      HBOX_WEB_MAX_FILE_UPLOAD: ${HBOX_WEB_MAX_FILE_UPLOAD}
+    # Please consider allowing analytics to help us improve Homebox (basic computer information, no personal data)
+      HBOX_OPTIONS_ALLOW_ANALYTICS: ${HBOX_OPTIONS_ALLOW_ANALYTICS}
+    volumes:
+      - <dir>::/data/
+    #ports:
+    #  - 3100:7745
+
+volumes:
+   homebox-data:
+     driver: local
+
+networks:
+  default:
+    external: true
+    name: nginprox

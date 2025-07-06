@@ -13,6 +13,11 @@ services:
     cap_add:
       - SYS_MODULE
       - NET_ADMIN
+    healthcheck:
+      test: /usr/bin/timeout 5s /bin/sh -c "/usr/bin/wg show | /bin/grep -q interface || exit 1"
+      interval: 1m
+      timeout: 5s
+      retries: 3
     ports:
       - "51820:51820/udp"
       #- "51821:51821/tcp"
