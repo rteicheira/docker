@@ -13,9 +13,9 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       HTTP_ALLOWED: ${HTTP_ALLOWED}
     volumes:
-      - <dir>:/app/data
+      - /<localpath>/:/app/data
 
 networks:
   default:
     external: true
-    name: nginprox
+    name: proxnet
