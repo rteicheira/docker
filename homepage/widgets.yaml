@@ -1,6 +1,6 @@
 - greeting:
     text_size: 4xl
-    text: "Skynet Homepage  "
+    text: "Homepage  "
 - resources:
     cpu: true
     memory: true

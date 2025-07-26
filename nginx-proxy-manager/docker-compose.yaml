@@ -6,15 +6,15 @@ services:
   app:
     image: 'jc21/nginx-proxy-manager:latest'
     container_name: nginproxy
-    restart: unless-stopped
+    restart: always #unless-stopped
 
     ports:
       - '80:80' # Public HTTP Port
       - '443:443' # Public HTTPS Port
       - '81:81' # Admin Web Port
     volumes:
-      - <dir>:/data
-      - <dir>:/etc/letsencrypt
+      - /<localpath>/nginproxy/data/:/data
+      - /<localpath>/nginproxy/letsencrypt/:/etc/letsencrypt
     environment:
       DISABLE_IPV6: 'true'
       X_FRAME_OPTIONS: "sameorigin"
@@ -22,4 +22,4 @@ services:
 networks:
   default:
     external: true
-    name: nginprox
+    name: proxnet

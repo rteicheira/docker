@@ -9,49 +9,46 @@
           href: https://russteicheira.net
     - Wandering Wiki:
         - icon: sh-wiki-js.svg
-          href: https://wiki.russlt.com
+          href: https://wiki..domain.tld
     - VVarMachine:
         - icon: /icons/vvar.png
           href: https://vvarmachine.com
 
-- Skynet:
+- Network:
     - Cloudflare:
         - icon: sh-cloudflare.svg
           href: https://cloudflare.com/
     - Portainer:
         - icon: sh-portainer.svg
-          href: https://portainer.skynet.local/
+          href: https://portainer.domain.tld
     - IT-Tools:
         - icon: sh-it-tools.svg
-          href: https://ittools.russlt.com/
+          href: https://ittools.domain.tld
 
 - Freelance:
-    - A Step Forward, Inc.:
+    -Site 1:
         - abbr: ASF
-          href: https://astepforwardinc.com
-    - Carrum Health:
+          href: https://domain.tld
+    - Site 2:
         - abbr: CH
-          href: https://carrumhealth.com
-    - Pantheon:
+          href: https://domain.tld
+    - Site 3:
         - abbr: PAN
-          href: https://pantheon.io/
-    - UV Pure:
-        - abbr: UVP
-          href: https://uvpure.com
+          href: https://domain.tld
 
-- A.A.:
-    - AA.org:
+- More:
+    - Site 4:
         - abbr: AA
-          href: https://aa.org/
-    - A.A. Grapevine:
+          href: https://domain.tld
+    - Site 5:
         - abbr: AAG
-          href: https://www.aagrapevine.org/
-    - CNCA 06:
+          href: https://domain.tld
+    - Site 6:
         - abbr: A06
-          href: https://www.cnca06.org/
-    - CNCA 06 District 08:
+          href: https://domain.tld
+    - Site 7:
         - abbr: D08
-          href: https://district08cnca.org/
-    - Get Sober, Win Prizes!:
+          href: https://domain.tld
+    - Site 8:
         - abbr: GSW
-          href: https://getsoberwinprizes.com/
+          href: https://domain.tld

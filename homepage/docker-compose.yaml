@@ -11,14 +11,14 @@ services:
     #ports:
       #- 3000:3000
     volumes:
-      - /<location>/docker/homepage:/app/config # Make sure your local config directory exists
-      - /<location>/docker/homepage/images:/app/public/images # images folder
-      - /<location>/docker/homepage/images/icons:/app/public/icons # icons folder
+      - /<localpath>/homepage/:/app/config # Make sure your local config directory exists
+      - /<localpath>/homepage/images/:/app/public/images # images folder
+      - /<localpath>/homepage/images/icons/:/app/public/icons # icons folder
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: ${HOMEPAGE_ALLOWED_HOSTS}
+      HOMEPAGE_ALLOWED_HOSTS: ${HOMEPAGE_ALLOWED_HOSTS} # Needs to be set to the sub.domain.tld or IP address you will access Homepage from
 
 networks:
   default:
     external: true
-    name: nginprox
+    name: proxnet

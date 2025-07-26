@@ -8,9 +8,9 @@ services:
     container_name: karakeep_web
     restart: unless-stopped
     volumes:
-      - <dir>:/data
+      - /<localpath>/karakeep/data:/data
     #ports:
-      #- 3000:3000 # Behind a reverse proxy
+      #- 3000:3000
     environment:
       MEILI_ADDR: http://meilisearch:7700
       BROWSER_WEB_URL: http://chrome:9222
@@ -20,6 +20,9 @@ services:
       DISABLE_SIGNUPS: ${DISABLE_SIGNUPS}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       DATA_DIR: /data # DON'T CHANGE THIS
+    networks:
+      - default
+      - karakeep
 
   chrome:
     image: gcr.io/zenika-hub/alpine-chrome:123
@@ -37,6 +40,8 @@ services:
       MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
       NEXTAUTH_URL: ${NEXTAUTH_URL}
       DISABLE_SIGNUPS: ${DISABLE_SIGNUPS}
+    networks:
+      - karakeep
 
   meilisearch:
     image: getmeili/meilisearch:v1.13.3
@@ -49,7 +54,9 @@ services:
       NEXTAUTH_URL: ${NEXTAUTH_URL}
       DISABLE_SIGNUPS: ${DISABLE_SIGNUPS}
     volumes:
-      - <dir>:/meili_data
+      - /<localpath>/karakeep/meilisearch:/meili_data
+    networks:
+      - karakeep
 
 volumes:
   meilisearch:
@@ -58,4 +65,7 @@ volumes:
 networks:
   default:
     external: true
-    name: nginprox
+    name: proxnet
+  karakeep:
+    external: true
+    name: karakeep

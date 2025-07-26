@@ -5,7 +5,7 @@ providers:
   weatherapi: weatherapiapikey
 
 # Basic Site Settings
-title: Skynet Homepage
+title: Homepage
 language: en
 theme: dark
 color: slate
@@ -17,22 +17,22 @@ headerStyle: boxed
 groupsInitiallyCollapsed: false
 
 # Site Assets
-base: http://home.skynet.local
+base: http://home.domain.tld
 background:
   image: images/background.png
   blur: xs
 
 layout:
-  Skynet services:
+  Services:
     style: row
     columns: 4
-    Skynet1:
+    Zone1:
       header: false
-    Skynet2:
+    Zone2:
       header: false
-    Skynet3:
+    Zone3:
       header: false
-    Skynet4:
+    Zone4:
       header: false
 
   Row2:
@@ -52,3 +52,7 @@ layout:
     style: row
     columns: 6
     rows: 2
+
+  Containers:
+    style: row
+    columns: 4

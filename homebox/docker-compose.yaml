@@ -14,9 +14,9 @@ services:
     # Please consider allowing analytics to help us improve Homebox (basic computer information, no personal data)
       HBOX_OPTIONS_ALLOW_ANALYTICS: ${HBOX_OPTIONS_ALLOW_ANALYTICS}
     volumes:
-      - <dir>::/data/
-    #ports:
-    #  - 3100:7745
+      - /<localpath>/homebox/:/data/
+    ports:
+      - 3100:7745
 
 volumes:
    homebox-data:
@@ -25,4 +25,4 @@ volumes:
 networks:
   default:
     external: true
-    name: nginprox
+    name: proxnet

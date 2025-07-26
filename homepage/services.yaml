@@ -1,121 +1,121 @@
 # https://gethomepage.dev/configs/services/
 
 # Row 1, Column 1
-- Skynet services:
-  - Skynet1:
+- Services:
+  - Zone1:
       - Uptime Kuma:
-          href: http://kuma.tld.com
+          href: http://kuma.domain.tld
           icon: sh-uptime-kuma.svg
-          server: wanderer
+          server: <host>
           container: uptime-kuma
           widget:
             type: uptimekuma
             fields: ["up", "down", "uptime"]
-            url: http://kuma.tld.local
+            url: http://kuma.domain.tld
             slug: all
-      - Proxy:
-          href: http://npm.tld.local
+      - Nginx Proxy Manager:
+          href: http://npm.domain.tld
           icon: sh-nginx-proxy-manager.svg
-          server: galaxy
+          server: <host>
           container: nginproxy
           widget:
             type: npm
             fields: ["enabled", "disabled", "total"]
-            url: http://npm.tld.local
+            url: http://npm.domain.tld
             username: <secret>
             password: <secret>
       - Wireguard:
-          href: http://vpn.tld.local
+          href: http://vpn.domain.tld
           icon: sh-wireguard.svg
-          server: galaxy
+          server: <host>
           container: wg-easy
           widget:
             type: wgeasy
             fields: ["connected", "enabled", "disabled", "total"]
-            url: http://vpn.tld.local
+            url: http://vpn.domain.tld
             password: <secret>
             threshold: 2
 
 # Row 1, Column 2
-  - Skynet2:
-      - Galaxy:
-          href: http://portainer.tld.local/#!/6/docker/dashboard
+  - Zone2:
+      - Host 1:
+          href: http://portainer.domain.tld/#!/#/docker/dashboard
           icon: sh-portainer.svg
-          server: galaxy
+          server: <host>
           container: portainer
           widget:
             type: portainer
             fields: ["running", "stopped", "total"]
-            url: http://portainer.tld.local
+            url: http://portainer.domain.tld
             env: 6
             key: <secret>
-      - Wanderer (Agent):
-          href: http://portainer.tld.local/#!/7/docker/dashboard
+      - Host 2 (Agent):
+          href: http://portainer.domain.tld/#!/#/docker/dashboard
           icon: sh-portainer.svg
-          server: wanderer
+          server: <host>
           container: portainer_agent
           widget:
             type: portainer
             fields: ["running", "stopped", "total"]
-            url: http://portainer.tld.local
+            url: http://portainer.domain.tld
             env: 7
             key: <secret>
-      - Starbase Delta (Agent):
-          href: http://portainer.tld.local/#!/4/docker/dashboard
+      - Host 3 (Agent):
+          href: http://portainer.domain.tld/#!/#/docker/dashboard
           icon: sh-portainer.svg
           server: delta
           container: portainer_agent
           widget:
             type: portainer
             fields: ["running", "stopped", "total"]
-            url: http://portainer.tld.local
-            env: 4
+            url: http://portainer.domain.tld
+            env: #
             key: <secret>
 
 # Row 1, Column 3
-  - Skynet3:
-      - Starbase Delta (Primary DNS):
-          href: http://starbase-delta.tld.local
+  - Zone3:
+      - Primary DNS:
+          href: http://dns1.domain.tld
           icon: sh-pi-hole.svg
           widget:
             type: pihole
             fields: ["queries", "blocked", "blocked_percent", "gravity"]
-            url: http://starbase-delta.tld.local
+            url: http://dns1.domain.tld
             version: 6
             key: <secret>
-      - Starbase Epsilon (Secondary DNS):
-          href: http://starbase-epsilon.tld.local
+      - Secondary DNS:
+          href: http://dns2.domain.tld
           icon: sh-pi-hole.svg
-          server: galaxy
+          server: <host>
           container: pihole
           widget:
             type: pihole
             fields: ["queries", "blocked", "blocked_percent", "gravity"]
-            url: http://starbase-epsilon.tld.local
+            url: http://dns2.domain.tld
             version: 6
             key: <secret>
       - Nebula Sync:
           icon: sh-pi-hole.svg
-          server: delta
+          server: <host>
           container: nebula-sync
 
 # Row 1, Column 4
-  - Skynet4:
-      - Diun - Galaxy:
+  - Zone4:
+      - Diun - Host 1:
           icon: sh-diun.webp
-          server: galaxy
+          server: <host>
           container: diun
-      - Diun - Delta:
+      - Diun - Host 2:
           icon: sh-diun.webp
-          server: delta
+          server: <host>
           container: diun
-      - Diun - Wanderer:
+      - Diun - Host 3:
           icon: sh-diun.webp
           server: wanderer
           container: diun
-      - Watchtower - Delta:
+      - Watchtower - Host:
           icon: sh-watchtower.svg
-          server: delta
+          server: <host>
           container: watchtower
 
 # Row 2, Column 1
@@ -129,7 +129,7 @@
             view: monthly
             integrations:
               - type: ical
-                url: <secret>
+                url: https://calendar.google.com/<secret>/basic.ics
                 name: Calendar
 
 # Row 2, Column 2
@@ -142,101 +142,130 @@
           maxEvents: 11
           integrations:
            - type: ical
-             url: <secret>
+             url: https://calendar.google.com/<secret>/basic.ics
              name: Agenda
 
 # Row 2, Column 3
   - Col3:
       - Karakeep:
-          href: http://keep.tld.com
+          href: https://keep.domain.tld
           icon: sh-karakeep-light.svg
-          server: galaxy
+          server: <host>
           container: karakeep_web
           widget:
             type: karakeep
             fields: ["bookmarks", "highlights", "lists", "tags"]
-            url: https://keep.tld.com
+            url: https://keep.domain.tld
             key: <secret>
-      - Karakeep Chrome:
-          icon: sh-karakeep-light.svg
-          container: karakeep_chrome
-          server: galaxy
-      - Karakeep Meilisearch:
-          icon: sh-karakeep-light.svg
-          container: karakeep_meilisearch
-          server: galaxy
+      - HomeBox:
+          href: http://homebox.domain.tld
+          icon: sh-homebox.svg
+          server: <host>
+          container: homebox
+          widget:
+            type: homebox
+            fields: ["items", "locations", "totalValue"]
+            url: http://homebox.domain.tld
+            username: <secret>
+            password: <secret>
 
 # Row 2, Column 4
   - Col4:
       - Skynet Reader:
-          href: https://rss.tld.com
+          href: https://rss.domain.tld
           icon: sh-freshrss.svg
-          server: galaxy
+          server: <host>
           container: freshrss
           widget:
             type: freshrss
             fields: ["subscriptions", "unread"]
-            url: http://rss.tld.local
-            username: rteicheira
+            url: https://rss.domain.tld
+            username: <secret>
             password: <secret>
-      - Wondering Wiki:
-          icon: sh-wiki-js.svg
-          href: http://wiki.tld.com
-          server: wanderer
-          container: wikijs-wiki
-      - Wondering Wiki Database:
-          icon: sh-postgresql.svg
-          server: wanderer
-          container: wikijs-db
-      - IT Tools:
-          href: http://ittools.tld.com
-          icon: sh-it-tools.svg
-          server: galaxy
-          container: ittools
-
+            
 # Row 3
 - Bitwarden:
     - Admin:
         icon: sh-bitwarden.svg
-        server: galaxy
+        server: <host>
         container: bitwarden-admin
     - API:
         icon: sh-microsoft-azure.svg
-        server: galaxy
+        server: <host>
         container: bitwarden-api
     - Attachments:
         icon: sh-papra.svg
-        server: galaxy
+        server: <host>
         container: bitwarden-attachments
     - Events:
         icon: sh-nextcloud-calendar.svg
-        server: galaxy
+        server: <host>
         container: bitwarden-events
     - Icons:
         icon: sh-hashicorp-vault.svg
-        server: galaxy
+        server: <host>
         container: bitwarden-icons
     - Identity:
         icon: sh-google.svg
-        server: galaxy
+        server: <host>
         container: bitwarden-identity
     - MSSQL:
         icon: sh-microsoft-access.svg
-        server: galaxy
+        server: <host>
         container: bitwarden-mssql
     - Nginx:
         icon: sh-nginx.svg
-        server: galaxy
+        server: <host>
         container: bitwarden-nginx
     - Notifications:
         icon: sh-notifiarr.png
-        server: galaxy
+        server: <host>
         container: bitwarden-notifications
     - SSO:
         icon: sh-microsoft.svg
-        server: galaxy
+        server: <host>
         container: bitwarden-sso
     - Web:
         icon: sh-web-check.png
-        server: galaxy
+        server: <host>
         container: bitwarden-web
+
+#Row 4
+- Containers:
+    - Karakeep Chrome:
+        icon: sh-karakeep-light.svg
+        container: karakeep_chrome
+        server: <host>
+    - Karakeep Meilisearch:
+        icon: sh-karakeep-light.svg
+        container: karakeep_meilisearch
+        server: <host>
+    - Wandering Wiki:
+        icon: sh-wiki-js.svg
+        href: http://wiki.domain.tld
+        server: <host>
+        container: wikijs-wiki
+    - Wandering Wiki Database:
+        icon: sh-postgresql.svg
+        server: <host>
+        container: wikijs-db
+    - ConvertX:
+        href: http://convertx.domain.tld
+        icon: sh-convertx.webp
+        server: <host>
+        container: convertx
+    - DateTime:
+        href: https://datetime.domain.tld
+        icon: sh-leantime.svg
+        server: <host>
+        container: datetime
+    - IT Tools:
+        href: https://ittools.domain.tld
+        icon: sh-it-tools.svg
+        server: <host>
+        container: ittools
+    - Omni Tools:
+        href: http://omnitools.domain.tld
+        icon: sh-omnitools.webp
+        server: <host>
+        container: omni-tools

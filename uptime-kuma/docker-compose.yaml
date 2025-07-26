@@ -10,9 +10,9 @@ services:
     #ports:
       #- 3001:3001
     volumes:
-      - <dir>:/app/data
+      - /<localpath>/kuma/_data:/app/data
 
 networks:
   default:
     external: true
-    name: nginprox
+    name: proxnet
