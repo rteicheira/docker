@@ -37,3 +37,8 @@ services:
         {{- else -}}
           {{range .Entries -}}{{.Message}}{{"\n"}}{{- end -}}
         {{- end -}}
+        
+networks:
+  default:
+    external: true
+    name: watchtower
