@@ -11,8 +11,8 @@ services:
     #ports:
       #- 8090:80
     volumes:
-      - /<localpath>/freshrss/data/:/var/www/FreshRSS/data
-      - /<localpath>/freshrss/extensions/:/var/www/FreshRSS/extensions
+      - ${LOCALPATH}/freshrss/data/:/var/www/FreshRSS/data
+      - ${LOCALPATH}/freshrss/extensions/:/var/www/FreshRSS/extensions
     logging:
       options:
         max-size: 100m

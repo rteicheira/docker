@@ -10,7 +10,7 @@ services:
     container_name: wikijs-db
     restart: unless-stopped
     volumes:
-      - /<localpath>/wiki/db-data/:/var/lib/postgresql/data
+      - ${LOCALPATH}/wiki/db-data/:/var/lib/postgresql/data
     logging:
       driver: local
     environment:

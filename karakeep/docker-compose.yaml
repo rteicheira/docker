@@ -8,7 +8,7 @@ services:
     container_name: karakeep_web
     restart: unless-stopped
     volumes:
-      - /<localpath>/karakeep/data:/data
+      - ${LOCALPATH}/karakeep/data:/data
     #ports:
       #- 3000:3000
     environment:
@@ -54,7 +54,7 @@ services:
       NEXTAUTH_URL: ${NEXTAUTH_URL}
       DISABLE_SIGNUPS: ${DISABLE_SIGNUPS}
     volumes:
-      - /<localpath>/karakeep/meilisearch:/meili_data
+      - ${LOCALPATH}/karakeep/meilisearch:/meili_data
     networks:
       - karakeep
 

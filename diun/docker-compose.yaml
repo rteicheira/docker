@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     command: serve
     volumes:
-      - ./<localpath>/diun/:/data
+      - ${LOCALPATH}/diun/:/data
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       TZ: ${TZ}

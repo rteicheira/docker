@@ -10,7 +10,7 @@ services:
     #ports:
       #- 3001:3001
     volumes:
-      - /<localpath>/kuma/_data:/app/data
+      - ${LOCALPATH}/kuma/_data:/app/data
 
 networks:
   default:

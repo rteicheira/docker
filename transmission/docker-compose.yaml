@@ -21,9 +21,9 @@ services:
       PGID: ${PGID}
       TZ: ${TZ}
     volumes:
-      - /<localpath>/transmission/data/:/config # Data directory
-      - /<localpath>/transmissions/:/downloads # Downloads directory
-      - /<localpath>/transmissions/watch/:/watch # Watch directory
+      - ${LOCALPATH}/transmission/data/:/config # Data directory
+      - ${LOCALPATH}/transmissions/:/downloads # Downloads directory
+      - ${LOCALPATH}/transmissions/watch/:/watch # Watch directory
     #ports:
     #  - 9091:9091
     #  - 51413:51413
@@ -45,7 +45,7 @@ services:
       #- 51413:51413/tcp # Download port access for Transmission
       #- 51413:51413/udp # Download port access for Transmission
     volumes:
-      - /<localpath>/gluetun/:/gluetun
+      - ${LOCALPATH}/gluetun/:/gluetun
     environment:
       VPN_SERVICE_PROVIDER: ${VPN_SERVICE_PROVIDER}
       VPN_TYPE: ${VPN_TYPE}

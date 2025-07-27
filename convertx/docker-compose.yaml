@@ -13,7 +13,7 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       HTTP_ALLOWED: ${HTTP_ALLOWED}
     volumes:
-      - /<localpath>/convertx/:/app/data
+      - ${LOCALPATH}/convertx/:/app/data
 
 networks:
   default:
