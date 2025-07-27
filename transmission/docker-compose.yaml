@@ -1,0 +1,66 @@
+# Website: 
+#		Transmission: https://transmissionbt.com/
+#		Gluetun: https://github.com/qdm12/gluetun-wiki
+# Container: 
+#		Transmission: https://hub.docker.com/r/linuxserver/transmission
+#		Gluetun: https://hub.docker.com/r/qmcgaw/gluetun
+# GitHub:
+#		Transmission: https://github.com/transmission/transmission
+#		Gluetun: https://github.com/qdm12/gluetun
+
+services:
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    network_mode: service:gluetun
+    depends_on:
+      gluetun:
+          condition: service_healthy
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+    volumes:
+      - /<localpath>/transmission/data/:/config # Data directory
+      - /<localpath>/transmissions/:/downloads # Downloads directory
+      - /<localpath>/transmissions/watch/:/watch # Watch directory
+    #ports:
+    #  - 9091:9091
+    #  - 51413:51413
+    #  - 51413:51413/udp
+    restart: unless-stopped
+
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - 8888:8888/tcp # HTTP proxy for Gluetun
+      #- 8388:8388/tcp # Shadowsocks for Gluetun
+      #- 8388:8388/udp # Shadowsocks for Gluetun
+      - 9091:9091 # Web access for Transmission
+      #- 51413:51413/tcp # Download port access for Transmission
+      #- 51413:51413/udp # Download port access for Transmission
+    volumes:
+      - /<localpath>/gluetun/:/gluetun
+    environment:
+      VPN_SERVICE_PROVIDER: ${VPN_SERVICE_PROVIDER}
+      VPN_TYPE: ${VPN_TYPE}
+      WIREGUARD_PRIVATE_KEY: ${WIREGUARD_PRIVATE_KEY}
+      WIREGUARD_ADDRESSES: ${WIREGUARD_ADDRESSES}
+      SERVER_COUNTRIES: ${SERVER_COUNTRIES}
+      FREE_ONLY: ${FREE_ONLY}
+      TZ: ${TZ}
+      UPDATER_PERIOD: ${UPDATER_PERIOD}
+      #PORT_FORWARD_ONLY: ${PORT_FORWARD_ONLY}
+      #VPN_PORT_FORWARDING: ${VPN_PORT_FORWARDING}
+      #VPN_PORT_FORWARDING_UP_COMMAND: ${VPN_PORT_FORWARDING_UP_COMMAND}
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: transmission
