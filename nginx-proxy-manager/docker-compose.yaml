@@ -7,7 +7,6 @@ services:
     image: 'jc21/nginx-proxy-manager:latest'
     container_name: nginproxy
     restart: always #unless-stopped
-
     ports:
       - '80:80' # Public HTTP Port
       - '443:443' # Public HTTPS Port
