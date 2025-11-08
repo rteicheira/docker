@@ -1,0 +1,71 @@
+# Website: https://docs.paperless-ngx.com/
+# Redis Container: https://hub.docker.com/_/redis
+# Postgres Container: https://hub.docker.com/_/postgres
+# Paperless Container: https://ghcr.io/paperless-ngx/paperless-ngx
+# GitHub: https://github.com/paperless-ngx/paperless-ngx
+
+services:
+  broker:
+    image: docker.io/library/redis:8
+    container_name: paperless_redis
+    restart: unless-stopped
+    volumes:
+      - ${LOCALPATH}/paperless/redisdata:/data
+    networks:
+      - default
+  db:
+    image: docker.io/library/postgres:17
+    container_name: paperless_postgres
+    restart: unless-stopped
+    volumes:
+      - ${LOCALPATH}/paperless/pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    networks:
+      - default
+  webserver:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    container_name: paperless_webserver
+    restart: unless-stopped
+    depends_on:
+      - db
+      - broker
+    #ports:
+    #  - "8010:8000"
+    volumes:
+      - ${LOCALPATH}/paperless/data:/usr/src/paperless/data
+      - ${LOCALPATH}/paperless/media:/usr/src/paperless/media
+      - ${LOCALPATH}/paperless/export:/usr/src/paperless/export
+      - ${LOCALPATH}/paperless/consume:/usr/src/paperless/consume
+    environment:
+      PAPERLESS_REDIS: redis://broker:6379
+      PAPERLESS_DBHOST: db # Matches name above
+      PAPERLESS_DBNAME: ${POSTGRES_DB}
+      PAPERLESS_DBUSER: ${POSTGRES_USER}
+      PAPERLESS_DBPASS: ${POSTGRES_PASSWORD}
+      PAPERLESS_SECRET_KEY: ${PAPERLESS_SECRET_KEY}
+      PAPERLESS_TIME_ZONE: ${TZ}
+      PAPERLESS_URL: ${PAPERLESS_URL}
+      PAPERLESS_CSRF_TRUSTED_ORIGINS: ${PAPERLESS_CSRF_TRUSTED_ORIGINS}
+      PAPERLESS_ALLOWED_HOSTS: ${PAPERLESS_ALLOWED_HOSTS}
+    networks:
+      - default
+      - proxnet
+
+volumes:
+  data:
+  media:
+  pgdata:
+  redisdata:
+  export:
+  consume:
+
+networks:
+  default:
+    external: true
+    name: paperless
+  proxnet:
+    external: true
+    name: proxnet
