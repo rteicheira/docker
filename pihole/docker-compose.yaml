@@ -21,7 +21,7 @@ services:
       - SYS_NICE
     environment:
       TZ: ${TZ}
-      FTLCONF_webserver_api_password: ${FTLCONF_webserver_api_password}
+      FTLCONF_webserver_api_password: ${FTLCONF_webserver_api_password} # Needed for the first load only
       FTLCONF_webserver_session_timeout: ${FTLCONF_webserver_session_timeout}
       #FTLCONF_webserver_api_app_sudo: ${FTLCONF_webserver_api_app_sudo}
       #FTLCONF_dns_upstreams: ${FTLCONF_dns_upstreams}
