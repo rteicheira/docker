@@ -39,11 +39,12 @@ services:
       - /dev/net/tun:/dev/net/tun
     ports:
       - 8888:8888/tcp # HTTP proxy for Gluetun
-      #- 8388:8388/tcp # Shadowsocks for Gluetun
-      #- 8388:8388/udp # Shadowsocks for Gluetun
+      - 8388:8388/tcp # Shadowsocks for Gluetun
+      - 8388:8388/udp # Shadowsocks for Gluetun
       - 9091:9091 # Web access for Transmission
       #- 51413:51413/tcp # Download port access for Transmission
       #- 51413:51413/udp # Download port access for Transmission
+      - 8880:8880/tcp # Control Server
     volumes:
       - ${LOCALPATH}/gluetun/:/gluetun
     environment:
