@@ -16,6 +16,7 @@ services:
     networks:
       - proxnet
 
+networks:
   proxnet:
     external: true
     name: proxnet
