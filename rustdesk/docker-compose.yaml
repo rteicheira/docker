@@ -1,1 +1,32 @@
+# Website: https://rustdesk.com/
+# Container: https://hub.docker.com/r/rustdesk/rustdesk-server
+# GitHub: https://github.com/rustdesk/rustdesk-server
 
+services:
+  hbbs:
+    image: rustdesk/rustdesk-server:latest
+    container_name: rustdesk-hbbs
+    restart: unless-stopped
+    command: hbbs
+    network_mode: "host"
+    ports:
+      - 21115:21115/tcp
+      - 21116:21116/tcp
+      - 21116:21116/udp
+      - 21118:21118/tcp
+    depends_on:
+      - hbbr
+    volumes:
+      - ${LOCALPATH}/rustdesk/:/root
+
+  hbbr:
+    image: rustdesk/rustdesk-server:latest
+    container_name: rustdesk-hbbr
+    restart: unless-stopped
+    command: hbbr
+    network_mode: "host"
+    ports:
+      - 21117:21117/tcp
+      - 21119:21119/tcp
+    volumes:
+      - ${LOCALPATH}/rustdesk/:/root
