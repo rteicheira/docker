@@ -9,7 +9,7 @@ services:
     environment:
       - ALWAYS_USE_RELAY=Y
     restart: unless-stopped
-    command: hbbs
+    command: hbbs -r ${RELAY}:21117
     ports:
       - 21115:21115/tcp
       - 21116:21116/tcp
