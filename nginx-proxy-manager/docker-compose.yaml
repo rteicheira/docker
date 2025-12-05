@@ -18,6 +18,19 @@ services:
       DISABLE_IPV6: 'true'
       X_FRAME_OPTIONS: "sameorigin"
 
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    restart: unless-stopped
+  
+  tinyauth:
+    container_name: tinyauth
+    image: ghcr.io/steveiliop56/tinyauth:v4
+    restart: unless-stopped
+    environment:
+      - APP_URL=http://tinyauth.example.com
+      - USERS=${USER}:${PASSWORD} # user:password
+
 networks:
   default:
     external: true
