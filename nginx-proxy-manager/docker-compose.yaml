@@ -24,7 +24,12 @@ services:
     restart: unless-stopped
     environment:
       - APP_URL=${APP_URL}
-      - USERS=${USER}:${PASSWORD} # user:pas${APP_URL}
+      - USERS=${USER}:${PASSWORD}
+      - APP_TITLE=${APP_TITLE}
+      - LOGIN_MAX_RETRIES=${LOGIN_MAX_RETRIES}
+      - LOGIN_TIMEOUT=${LOGIN_TIMEOUT}
+      - SECURE_COOKIE=${SECURE_COOKIE}
+      - SESSION_EXPIRY=${SESSION_EXPIRY}
 
 networks:
   default:
