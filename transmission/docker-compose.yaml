@@ -47,6 +47,7 @@ services:
       - 8880:8000/tcp # Control Server
     volumes:
       - ${LOCALPATH}/gluetun/:/gluetun
+      - ${LOCALPATH}/gluetun/config/config.toml:/gluetun/auth/config.toml
     environment:
       VPN_SERVICE_PROVIDER: ${VPN_SERVICE_PROVIDER}
       VPN_TYPE: ${VPN_TYPE}
