@@ -44,7 +44,7 @@ services:
       - 9091:9091 # Web access for Transmission
       #- 51413:51413/tcp # Download port access for Transmission
       #- 51413:51413/udp # Download port access for Transmission
-      - 8880:8000/tcp # Control Server
+      - 8000:8000/tcp # Control Server
     volumes:
       - ${LOCALPATH}/gluetun/:/gluetun
       - ${LOCALPATH}/gluetun/config/config.toml:/gluetun/auth/config.toml
