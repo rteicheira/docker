@@ -1,0 +1,44 @@
+<!--
+Source: https://pastebin.com/RLuDzXNc
+
+Create the parent page. Set the type to "Code (raw HTML)" or Markdown.
+Add this content to the newly created page: <ul id="pages">No pages found.</ul>
+Edit the list of tags at the top of the script.
+-->
+
+<script type="application/javascript">
+let tags = ["mytag"]; // EDIT THIS
+ 
+///////////////////////////////////////////
+ 
+window.addEventListener("load", async () => {
+    let response = await fetch("/graphql", {
+        method: "POST",
+        body: JSON.stringify({
+        query: `query ($tags: [String!]) { pages { list(limit:10, orderBy: CREATED, orderByDirection:DESC, tags: $tags) { id \npath \ntitle \ndescription \nisPublished } } }`,
+        variables: {
+            tags: tags,
+        }
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }, );
+ 
+    let data = await response.json();
+    let pages = data["data"]["pages"]["list"];
+    let container = document.querySelector("#pages");
+    let pageElements = pages.filter(page => page.isPublished)
+        .map(({path: path, title: title, description: description, id: _}) => {
+            let pageEl = document.createElement("li");
+            pageEl.classList.add("page");
+            pageEl.innerHTML = `<p><a href="${path}">${title}</a></p><p>${description}</p>`;
+            return pageEl;
+        });
+    if (pageElements.length == 0) {
+        return
+    }
+    container.innerHTML = "";
+    container.append(...pageElements);
+});
+</script>
