@@ -23,9 +23,7 @@ services:
       TMP_DOWNLOAD_FOLDER: /data/tmp
       YOUTUBE_COOKIES_FILE_PATH: /config/youtube_cookies.txt
     volumes:
-      - ${LOCALPATH}/hometube/data/:/config # Data directory
-      - ${LOCALPATH}/hometube/:/downloads # Downloads directory
-      - ${LOCALPATH}/hometube/watch/:/watch # Watch directory
+      - ${LOCALPATH}xxxxxxxxxxxxxxxx
     #ports:
     #  - 8051:8051
     restart: unless-stopped
