@@ -1,0 +1,67 @@
+# Website: 
+#		Hometube: 
+#		Gluetun: https://github.com/qdm12/gluetun-wiki
+# Container: 
+#		Hometube: 
+#		Gluetun: https://hub.docker.com/r/qmcgaw/gluetun
+# GitHub:
+#		Hometube: 
+#		Gluetun: https://github.com/qdm12/gluetun
+
+services:
+  hometube:
+    image: ghcr.io/egalitarianmonkey/hometube:latest
+    container_name: hometube
+    network_mode: service:gluetun
+    depends_on:
+      gluetun:
+          condition: service_healthy
+    environment:
+      UI_LANGUAGE: en
+      LANGUAGE_PRIMARY: en
+      VIDEOS_FOLDER: /data/videos
+      TMP_DOWNLOAD_FOLDER: /data/tmp
+      YOUTUBE_COOKIES_FILE_PATH: /config/youtube_cookies.txt
+    volumes:
+      - ${LOCALPATH}/hometube/data/:/config # Data directory
+      - ${LOCALPATH}/hometube/:/downloads # Downloads directory
+      - ${LOCALPATH}/hometube/watch/:/watch # Watch directory
+    #ports:
+    #  - 8051:8051
+    restart: unless-stopped
+
+  gluetun:
+    image: qmcgaw/gluetun:latest
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - 8888:8889/tcp # HTTP proxy for Gluetun
+      - 8388:8389/tcp # Shadowsocks for Gluetun
+      - 8388:8389/udp # Shadowsocks for Gluetun
+      - 8051:8051 # hometube
+      - 8880:8009/tcp # Control Server
+    volumes:
+      - ${LOCALPATH}/gluetun/:/gluetun
+      - ${LOCALPATH}/gluetun/config/config.toml:/gluetun/auth/config.toml
+    environment:
+      VPN_SERVICE_PROVIDER: ${VPN_SERVICE_PROVIDER}
+      VPN_TYPE: ${VPN_TYPE}
+      WIREGUARD_PRIVATE_KEY: ${WIREGUARD_PRIVATE_KEY}
+      WIREGUARD_ADDRESSES: ${WIREGUARD_ADDRESSES}
+      SERVER_COUNTRIES: ${SERVER_COUNTRIES}
+      FREE_ONLY: ${FREE_ONLY}
+      TZ: ${TZ}
+      UPDATER_PERIOD: ${UPDATER_PERIOD}
+      DOT: ${DOT}
+      #PORT_FORWARD_ONLY: ${PORT_FORWARD_ONLY}
+      #VPN_PORT_FORWARDING: ${VPN_PORT_FORWARDING}
+      #VPN_PORT_FORWARDING_UP_COMMAND: ${VPN_PORT_FORWARDING_UP_COMMAND}
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: hometube
