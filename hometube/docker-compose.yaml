@@ -17,6 +17,8 @@ services:
       gluetun:
           condition: service_healthy
     environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
       TZ: ${TZ}
       UI_LANGUAGE: ${LANG}
       LANGUAGE_PRIMARY: ${LANG}
