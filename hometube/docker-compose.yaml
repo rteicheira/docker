@@ -27,6 +27,7 @@ services:
       YOUTUBE_COOKIES_FILE_PATH: /config/youtube_cookies.txt
     volumes:
       - ${LOCALPATH}/hometube/downloads:/downloads:rw
+      - ${LOCALPATH}/hometube/videos:/data/videos:rw
       - ${LOCALPATH}/hometube/config:/config:rw
       - ${LOCALPATH}/hometube/tmp:/data/tmp:rw
     #ports:
