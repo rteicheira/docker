@@ -2,10 +2,10 @@
 #		Hometube: 
 #		Gluetun: https://github.com/qdm12/gluetun-wiki
 # Container: 
-#		Hometube: 
+#		Hometube: https://ghcr.io/egalitarianmonkey/hometube
 #		Gluetun: https://hub.docker.com/r/qmcgaw/gluetun
 # GitHub:
-#		Hometube: 
+#		Hometube: https://github.com/EgalitarianMonkey/hometube
 #		Gluetun: https://github.com/qdm12/gluetun
 
 services:
@@ -17,13 +17,16 @@ services:
       gluetun:
           condition: service_healthy
     environment:
-      UI_LANGUAGE: en
-      LANGUAGE_PRIMARY: en
+      TZ: ${TZ}
+      UI_LANGUAGE: ${LANG}
+      LANGUAGE_PRIMARY: ${LANG}
       VIDEOS_FOLDER: /data/videos
       TMP_DOWNLOAD_FOLDER: /data/tmp
       YOUTUBE_COOKIES_FILE_PATH: /config/youtube_cookies.txt
     volumes:
-      - ${LOCALPATH}xxxxxxxxxxxxxxxx
+      - ${LOCALPATH}/hometube/downloads:/downloads:rw
+      - ${LOCALPATH}/hometube/config:/config:rw
+      - ${LOCALPATH}/hometube/tmp:/data/tmp:rw
     #ports:
     #  - 8051:8051
     restart: unless-stopped
@@ -62,4 +65,4 @@ services:
 networks:
   default:
     external: true
-    name: hometube
+    name: vpn
