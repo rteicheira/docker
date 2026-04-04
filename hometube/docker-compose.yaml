@@ -49,7 +49,7 @@ services:
       - 8388:8388/tcp # Shadowsocks for Gluetun
       - 8388:8388/udp # Shadowsocks for Gluetun
       - 8501:8501 # hometube
-      - 8880:8880/tcp # Control Server
+      - 8880:8000/tcp # Control Server
     volumes:
       - ${LOCALPATH}/gluetun/:/gluetun
       - ${LOCALPATH}/gluetun/config/config.toml:/gluetun/auth/config.toml
