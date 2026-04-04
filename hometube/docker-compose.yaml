@@ -24,12 +24,15 @@ services:
       LANGUAGE_PRIMARY: ${LANG}
       VIDEOS_FOLDER: /data/videos
       TMP_DOWNLOAD_FOLDER: /data/tmp
-      YOUTUBE_COOKIES_FILE_PATH: /config/youtube_cookies.txt
+      YOUTUBE_COOKIES_FILE_PATH: ${YOUTUBE_COOKIES_FILE_PATH}
     volumes:
-      - ${LOCALPATH}/hometube/downloads:/downloads:rw
-      - ${LOCALPATH}/hometube/videos:/data/videos:rw
-      - ${LOCALPATH}/hometube/config:/config:rw
-      - ${LOCALPATH}/hometube/tmp:/data/tmp:rw
+      - type: bind
+        source: ${VIDEOS_FOLDER_DOCKER_HOST:?set VIDEOS_FOLDER_DOCKER_HOST}
+        target: /data/videos
+      - type: bind
+        source: ${TMP_DOWNLOAD_FOLDER_DOCKER_HOST:?set TMP_DOWNLOAD_FOLDER_DOCKER_HOST}
+        target: /data/tmp
+      - "${YOUTUBE_COOKIES_FILE_PATH_DOCKER_HOST}:/config/youtube_cookies.txt"
     #ports:
     #  - 8051:8051
     restart: unless-stopped
