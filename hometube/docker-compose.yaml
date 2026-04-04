@@ -42,7 +42,7 @@ services:
       - 8888:8889/tcp # HTTP proxy for Gluetun
       - 8388:8389/tcp # Shadowsocks for Gluetun
       - 8388:8389/udp # Shadowsocks for Gluetun
-      - 8051:8051 # hometube
+      - 8501:8501 # hometube
       - 8880:8009/tcp # Control Server
     volumes:
       - ${LOCALPATH}/gluetun/:/gluetun
