@@ -34,7 +34,7 @@ services:
         target: /data/tmp
       - "${YOUTUBE_COOKIES_FILE_PATH_DOCKER_HOST}:/config/youtube_cookies.txt"
     #ports:
-    #  - 8051:8051
+    #  - 8501:8501
     restart: unless-stopped
 
   gluetun:
