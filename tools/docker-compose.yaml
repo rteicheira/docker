@@ -1,5 +1,6 @@
 # ConvertX: Website: https://crazymax.dev/diun/ || Container: https://ghcr.io/c4illin/convertx || GitHub: https://github.com/C4illin/ConvertX
-# DateTime App: Website: https://datetime.app/ || Container: https://ghcr.io/airyland/datetime.app || GitHub: https://github.com/airyland/datetime.app
+# Datetime.app: Website: https://datetime.app/ || Container: https://ghcr.io/airyland/datetime.app || GitHub: https://github.com/airyland/datetime.app
+# IT-Tools: Website: https://it-tools.tech/ || Container: https://hub.docker.com/r/corentinth/it-tools || GitHub: https://github.com/CorentinTh/it-tools
 # OmniTools: Website: https://omnitools.app/ || Container: https://hub.docker.com/r/iib0011/omni-tools || GitHub: https://github.com/iib0011/omni-tools
 
 services:
@@ -19,7 +20,7 @@ services:
     restart: unless-stopped
 
   it-tools:
-    image: 'corentinth/it-tools:latest'
+    image: corentinth/it-tools:latest
     container_name: ittools
     restart: unless-stopped
 
