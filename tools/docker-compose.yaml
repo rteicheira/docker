@@ -1,0 +1,34 @@
+# ConvertX: Website: https://crazymax.dev/diun/ || Container: https://ghcr.io/c4illin/convertx || GitHub: https://github.com/C4illin/ConvertX
+# DateTime App: Website: https://datetime.app/ || Container: https://ghcr.io/airyland/datetime.app || GitHub: https://github.com/airyland/datetime.app
+# OmniTools: Website: https://omnitools.app/ || Container: https://hub.docker.com/r/iib0011/omni-tools || GitHub: https://github.com/iib0011/omni-tools
+
+services:
+  convertx: 
+    image: ghcr.io/c4illin/convertx
+    container_name: convertx
+    restart: unless-stopped
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+      HTTP_ALLOWED: ${HTTP_ALLOWED}
+    volumes:
+      - ${LOCALPATH}/convertx/:/app/data
+
+  datetime.app:
+    container_name: datetime
+    image: ghcr.io/airyland/datetime.app:latest
+    restart: unless-stopped
+
+  it-tools:
+    image: 'corentinth/it-tools:latest'
+    container_name: ittools
+    restart: unless-stopped
+
+  omni-tools:
+    image: iib0011/omni-tools:latest
+    container_name: omni-tools
+    restart: unless-stopped
+
+networks:
+  default:
+    external: true
+    name: proxnet
