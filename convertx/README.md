@@ -1,6 +1,11 @@
 # ConvertX README
+## Project source links
+[ConvertX Website](https://crazymax.dev/diun/)
+[ConvertX Container](https://ghcr.io/c4illin/convertx)
+[ConvertX GitHub Project](https://github.com/C4illin/ConvertX)
+
 ## Environment variables
-A review of the environment variables I am using in my environment.  This is not an exhaustive list of all the container environment variables.  For a full list of all environment variables, refer to the [ConvertX Project README](https://github.com/C4illin/ConvertX).
+A review of the environment variables I am using in my environment.  This is not an exhaustive list of all the container environment variables.  For a full list of all environment variables, refer to the [ConvertX Project README](https://github.com/C4illin/ConvertX/blob/main/README.md).
 
 | Variable | Default Value | Comments |
 | -- | -- | -- |
