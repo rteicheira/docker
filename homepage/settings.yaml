@@ -8,7 +8,7 @@ providers:
 title: Homepage
 language: en
 theme: dark
-color: slate
+color: slate #zinc
 target: _blank
 statusStyle: "dot"
 useEqualHeights: true
@@ -17,42 +17,69 @@ headerStyle: boxed
 groupsInitiallyCollapsed: false
 
 # Site Assets
-base: http://home.domain.tld #https://home.domain.tld
+base: https://servuce.domain.tld/ #http://service.domain.tld
 background:
   image: images/background.png
   blur: xs
 
+########################
+#### Home Tab Items ####
+########################
 layout:
-  Services:
-    style: row
-    columns: 4
-    Zone1:
-      header: false
-    Zone2:
-      header: false
-    Zone3:
-      header: false
-    Zone4:
+  # HOME Tab Items
+  Network:
+      style: column
+      tab: Home
+      icon: mdi-network
+  Management:
+      style: column
+      tab: Home
+      icon: mdi-server
+  Knowledge Management:
+      style: column
+      tab: Home
+      icon: mdi-book-account
+  Media Services:
+      style: column
+      tab: Home
+      icon: mdi-multimedia
+  Calendar:
+      style: column
+      tab: Home
+      icon: mdi-calendar-month
+  Agenda:
+      style: column
+      tab: Home
+      icon: mdi-view-agenda
+  Download Management:
+      style: column
+      tab: Home
+      icon: mdi-download-multiple
+  NotUsed2:
+      style: column
+      tab: Home
       header: false
 
-  Row2:
-    style: row
-    columns: 4
-    header: false
-    Col1:
-      header: false
-    Col2:
-      header: false
-    Col3:
-      header: false
-    Col4:
-      header: false
-
+########################
+# Containers Tab Items #
+########################
+  Security:
+      style: row
+      columns: 5
+      tab: Containers
+      icon: mdi-server-security
+  Applications:
+      style: row
+      columns: 5
+      tab: Containers
+      icon: mdi-application-array-outline
+  Tools:
+      style: row
+      columns: 5
+      tab: Containers
+      icon: mdi-toolbox-outline
   Bitwarden:
-    style: row
-    columns: 6
-    rows: 2
-
-  Containers:
-    style: row
-    columns: 4
+      style: row
+      columns: 5
+      tab: Containers
+      icon: mdi-shield-account-outline
