@@ -17,7 +17,7 @@ headerStyle: boxed
 groupsInitiallyCollapsed: false
 
 # Site Assets
-base: http://home.domain.tld
+base: http://home.domain.tld #https://home.domain.tld
 background:
   image: images/background.png
   blur: xs

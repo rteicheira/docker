@@ -1,139 +1,185 @@
 # https://gethomepage.dev/configs/services/
 
-# Row 1, Column 1
-- Services:
-  - Zone1:
-      - Uptime Kuma:
-          href: http://kuma.domain.tld
-          icon: sh-uptime-kuma.svg
-          server: <host>
-          container: uptime-kuma
-          widget:
-            type: uptimekuma
-            fields: ["up", "down", "uptime"]
-            url: http://kuma.domain.tld
-            slug: all
-      - Nginx Proxy Manager:
-          href: http://npm.domain.tld
-          icon: sh-nginx-proxy-manager.svg
-          server: <host>
-          container: nginproxy
-          widget:
-            type: npm
-            fields: ["enabled", "disabled", "total"]
-            url: http://npm.domain.tld
-            username: <secret>
-            password: <secret>
-      - Wireguard:
-          href: http://vpn.domain.tld
-          icon: sh-wireguard.svg
-          server: <host>
-          container: wg-easy
-          widget:
-            type: wgeasy
-            fields: ["connected", "enabled", "disabled", "total"]
-            url: http://vpn.domain.tld
-            password: <secret>
-            threshold: 2
+##################################################
+################# Home Tab Items #################
+##################################################
+- Network:
+    - Uptime Kuma:
+        href: https://service.domain.tld
+        icon: sh-uptime-kuma.svg
+        Server: <server>
+        description: "Service monitoring tool"
+        container: uptime-kuma
+        widget:
+          type: uptimekuma
+          fields: ["up", "down", "uptime"]
+          url: https://service.domain.tld
+          slug: all
 
-# Row 1, Column 2
-  - Zone2:
-      - Host 1:
-          href: http://portainer.domain.tld/#!/#/docker/dashboard
-          icon: sh-portainer.svg
-          server: <host>
-          container: portainer
-          widget:
-            type: portainer
-            fields: ["running", "stopped", "total"]
-            url: http://portainer.domain.tld
-            env: 6
-            key: <secret>
-      - Host 2 (Agent):
-          href: http://portainer.domain.tld/#!/#/docker/dashboard
-          icon: sh-portainer.svg
-          server: <host>
-          container: portainer_agent
-          widget:
-            type: portainer
-            fields: ["running", "stopped", "total"]
-            url: http://portainer.domain.tld
-            env: 7
-            key: <secret>
-      - Host 3 (Agent):
-          href: http://portainer.domain.tld/#!/#/docker/dashboard
-          icon: sh-portainer.svg
-          server: delta
-          container: portainer_agent
-          widget:
-            type: portainer
-            fields: ["running", "stopped", "total"]
-            url: http://portainer.domain.tld
-            env: #
-            key: <secret>
+    - Primary DNS:
+        href: https://service.domain.tld
+        icon: sh-pi-hole.svg
+        description: "Primary DNS server
+        widget:
+          type: pihole
+          fields: ["queries", "blocked", "blocked_percent", "gravity"]
+          url: https://service.domain.tld
+          version: 6
+          key: <secret>
 
-# Row 1, Column 3
-  - Zone3:
-      - Primary DNS:
-          href: http://dns1.domain.tld
-          icon: sh-pi-hole.svg
-          widget:
-            type: pihole
-            fields: ["queries", "blocked", "blocked_percent", "gravity"]
-            url: http://dns1.domain.tld
-            version: 6
-            key: <secret>
-      - Secondary DNS:
-          href: http://dns2.domain.tld
-          icon: sh-pi-hole.svg
-          server: <host>
-          container: pihole
-          widget:
-            type: pihole
-            fields: ["queries", "blocked", "blocked_percent", "gravity"]
-            url: http://dns2.domain.tld
-            version: 6
-            key: <secret>
-      - Nebula Sync:
-          icon: sh-pi-hole.svg
-          server: <host>
-          container: nebula-sync
+    - Secondary DNS:
+        href: https://service.domain.tld
+        icon: sh-pi-hole.svg
+        description: "Secondary DNS server"
+        widget:
+          type: pihole
+          fields: ["queries", "blocked", "blocked_percent", "gravity"]
+          url: https://service.domain.tld
+          version: 6
+          key: <secret>
 
-# Row 1, Column 4
-  - Zone4:
-      - Diun - Host 1:
-          icon: sh-diun.webp
-          server: <host>
-          container: diun
-      - Diun - Host 2:
-          icon: sh-diun.webp
-          server: <host>
-          container: diun
-      - Diun - Host 3:
-          icon: sh-diun.webp
-          server: wanderer
-          container: diun
-      - Watchtower - Host:
-          icon: sh-watchtower.svg
-          server: <host>
-          container: watchtower
+    - Nginx Proxy Manager:
+        href: https://service.domain.tld
+        icon: sh-nginx-proxy-manager.svg
+        Server: <server>
+        description: "Proxy manager for Skynet"
+        container: nginproxy
+        widget:
+          type: npm
+          fields: ["enabled", "disabled", "total"]
+          url: https://service.domain.tld
+          username: <secret>
+          password: <secret>
 
-# Row 2, Column 1
-- Row2:
-  - Col1:
-      - Calendar:
-          widget:
-            type: calendar
-            firstDayInWeek: sunday
-            maxEvents: none
-            view: monthly
-            integrations:
-              - type: ical
-                url: https://calendar.google.com/<secret>/basic.ics
-                name: Calendar
+##################################################
+##################################################
+- Management:
+    - Portainer:
+        href: https://service.domain.tld/#!/#/docker/dashboard
+        icon: sh-portainer.svg
+        Server: <server>
+        description: "Portainer console"
+        container: portainer
+        widget:
+          type: portainer
+          fields: ["running", "stopped", "total"]
+          url: https://service.domain.tld
+          env: 3
+          key: <secret>
 
-# Row 2, Column 2
-  - Col2:
+    - Portainer - Wanderer Agent:
+        href: https://service.domain.tld/#!/#/docker/dashboard
+        icon: sh-portainer.svg
+        server <server>
+        description: "Portainer agent"
+        container: portainer_agent
+        widget:
+          type: portainer
+          fields: ["running", "stopped", "total"]
+          url: https://service.domain.tld
+          env: 5
+          key: <secret>
+
+    - Wireguard:
+        href: https://service.domain.tld
+        icon: sh-wireguard.svg
+        Server: <server>
+        description: "VPN service"
+        container: wg-easy
+        widget:
+          type: wgeasy
+          fields: ["connected", "enabled", "disabled", "total"]
+          url: https://service.domain.tld
+          password: <secret>
+          threshold: 2
+
+##################################################
+##################################################
+- Knowledge Management:
+    - HomeBox:
+        href: https://service.domain.tld
+        icon: sh-homebox.svg
+        Server: <server>
+        description: "Personal inventory tool"
+        container: homebox
+        widget:
+          type: homebox
+          fields: ["items", "locations", "totalValue"]
+          url: https://service.domain.tld
+          username: <secret>
+          password: <secret>
+          
+    - Karakeep:
+        href: https://service.domain.tld
+        icon: sh-karakeep-light.svg
+        Server: <server>
+        description: "Bookmarking and auto tagging tool"
+        container: karakeep_web
+        widget:
+          type: karakeep
+          fields: ["bookmarks", "highlights", "lists", "tags"]
+          url: https://service.domain.tld
+          key: <secret>
+    
+    - Paperless-ngx:
+        href: https://service.domain.tld
+        icon: sh-paperless-ngx.webp
+        Server: <server>
+        description: "Personal document repository"
+        container: paperless_webserver
+        widget:
+          type: paperlessngx
+          fields: ["total", "inbox"]
+          url: https://service.domain.tld
+          key: <secret>
+
+    - Skynet Reader:
+        href: https://service.domain.tld
+        icon: sh-freshrss.svg
+        Server: <server>
+        description: "Personal RSS reader"
+        container: freshrss
+        widget:
+          type: freshrss
+          fields: ["subscriptions", "unread"]
+          url: https://service.domain.tld
+          username: <secret>
+          password: <secret>
+
+
+##################################################
+##################################################
+- Media Services:
+    - Jellyfin:
+        href: https://service.domain.tld
+        icon: sh-jellyfin.svg
+        description: "Media server"
+        widget:
+          type: jellyfin
+          fields: ["movies", "series", "episodes", "songs"]
+          url: https://service.domain.tld
+          enableBlocks: true
+          enableMediaControl: false
+          expandOneStreamToTwoRows: false
+          key: <secret>
+
+##################################################
+##################################################
+- Calendar:
+    - Calendar:
+        widget:
+          type: calendar
+          firstDayInWeek: sunday
+          maxEvents: none
+          view: monthly
+          integrations:
+            - type: ical
+              url: <secret>
+              name: Calendar
+
+##################################################
+##################################################
+- Agenda:
     - Agenda:
         widget:
           type: calendar
@@ -142,130 +188,216 @@
           maxEvents: 11
           integrations:
            - type: ical
-             url: https://calendar.google.com/<secret>/basic.ics
+             url: <secret>
              name: Agenda
+       
+##################################################
+##################################################
+- Download Management:
+    - Gluetun:
+        icon: sh-gluetun.svg
+        Server: <server>
+        description: "VPN service for download managers"
+        container: gluetun
+        widget:
+          type: gluetun
+          fields: ["public_ip","region","country"]
+          url: https://service.domain.tld
+          key: <secret>
+          version: 2
 
-# Row 2, Column 3
-  - Col3:
-      - Karakeep:
-          href: https://keep.domain.tld
-          icon: sh-karakeep-light.svg
-          server: <host>
-          container: karakeep_web
-          widget:
-            type: karakeep
-            fields: ["bookmarks", "highlights", "lists", "tags"]
-            url: https://keep.domain.tld
-            key: <secret>
-      - HomeBox:
-          href: http://homebox.domain.tld
-          icon: sh-homebox.svg
-          server: <host>
-          container: homebox
-          widget:
-            type: homebox
-            fields: ["items", "locations", "totalValue"]
-            url: http://homebox.domain.tld
-            username: <secret>
-            password: <secret>
+    - HomeTube:
+        href: https://service.domain.tld
+        icon: sh-youtube-dl.svg
+        Server: <server>
+        description: "Youtube downloader and converter"
+        container: hometube
 
-# Row 2, Column 4
-  - Col4:
-      - Skynet Reader:
-          href: https://rss.domain.tld
-          icon: sh-freshrss.svg
-          server: <host>
-          container: freshrss
-          widget:
-            type: freshrss
-            fields: ["subscriptions", "unread"]
-            url: https://rss.domain.tld
-            username: <secret>
-            password: <secret>
-            
-# Row 3
-- Bitwarden:
-    - Admin:
-        icon: sh-bitwarden.svg
-        server: <host>
-        container: bitwarden-admin
-    - API:
-        icon: sh-microsoft-azure.svg
-        server: <host>
-        container: bitwarden-api
-    - Attachments:
-        icon: sh-papra.svg
-        server: <host>
-        container: bitwarden-attachments
-    - Events:
-        icon: sh-nextcloud-calendar.svg
-        server: <host>
-        container: bitwarden-events
-    - Icons:
-        icon: sh-hashicorp-vault.svg
-        server: <host>
-        container: bitwarden-icons
-    - Identity:
-        icon: sh-google.svg
-        server: <host>
-        container: bitwarden-identity
-    - MSSQL:
-        icon: sh-microsoft-access.svg
-        server: <host>
-        container: bitwarden-mssql
-    - Nginx:
-        icon: sh-nginx.svg
-        server: <host>
-        container: bitwarden-nginx
-    - Notifications:
-        icon: sh-notifiarr.png
-        server: <host>
-        container: bitwarden-notifications
-    - SSO:
-        icon: sh-microsoft.svg
-        server: <host>
-        container: bitwarden-sso
-    - Web:
-        icon: sh-web-check.png
-        server: <host>
-        container: bitwarden-web
+    - Transmission:
+        href: https://service.domain.tld
+        icon: sh-transmission.svg
+        Server: <server>
+        description: "Download management tool"
+        container: transmission
+        widget:
+          type: transmission
+          fields: ["leech", "download", "seed", "upload"]
+          url: https://service.domain.tld
+          rpcURL: /transmission/
 
-#Row 4
-- Containers:
+##################################################
+##################################################
+- NotUsed2:
+    - _hidden:
+        - _hidden:
+ 
+##################################################
+############### Containers Tab Items #############
+##################################################
+- Security:
+    - Diun:
+        icon: sh-diun.webp
+        Server: <server>
+        description: "Server 1 update notifier service"
+        container: diun
+    - Diun:
+        icon: sh-diun.webp
+        server <server>
+        description: "Server 2 update notifier service"
+        container: diun
+    - Nebula Sync:
+        icon: sh-pi-hole.svg
+        description: DNS settings sync service
+        Server: <server>
+        container: nebula-sync
+    - RustDesk HBBR:
+        icon: sh-rustdesk.svg
+        Server: <server>
+        description: "RustDesk HBBR service for remote desktop"
+        container: rustdesk-hbbr
+    - RustDesk HBBS:
+        icon: sh-rustdesk.svg
+        Server: <server>
+        description: "RustDesk HBBS service for remote desktop"
+        container: rustdesk-hbbs
+    - Tinyauth:
+        icon: sh-tinyauth.webp
+        Server: <server>
+        description: "Tinyauth service"
+        container: tinyauth
+
+##################################################
+##################################################
+- Applications:
     - Karakeep Chrome:
         icon: sh-karakeep-light.svg
         container: karakeep_chrome
-        server: <host>
+        description: "Karakeep Chrome extension"
+        Server: <server>
     - Karakeep Meilisearch:
         icon: sh-karakeep-light.svg
         container: karakeep_meilisearch
-        server: <host>
-    - Wandering Wiki:
-        icon: sh-wiki-js.svg
-        href: http://wiki.domain.tld
-        server: <host>
-        container: wikijs-wiki
-    - Wandering Wiki Database:
+        description: "Karakeep Meilisearch service"
+        Server: <server>
+    - Paperless Broker:
+        icon: sh-redis.webp
+        container: paperless_redis
+        description: "Paperless redis broker service"
+        Server: <server>
+    - Paperless Database:
         icon: sh-postgresql.svg
-        server: <host>
+        container: paperless_postgres
+        description: "Paperless PostgreSQL database"
+        Server: <server>
+    - Slash:
+        href: https://service.domain.tld
+        icon: sh-slash.svg
+        Server: <server>
+        description: "Personal link shorterner"
+        container: slash
+    - WikiJS:
+        icon: sh-wiki-js.svg
+        href: https://service.domain.tld
+        Server: <server>
+        description: "Personal knoweldge base"
+        container: wikijs-wiki
+    - WikiJS Database:
+        icon: sh-postgresql.svg
+        Server: <server>
+        description: "Wiki PostgreSQL database"
         container: wikijs-db
+
+##################################################
+##################################################
+- Tools:
     - ConvertX:
-        href: http://convertx.domain.tld
+        href: https://service.domain.tld
         icon: sh-convertx.webp
-        server: <host>
+        Server: <server>
+        description: "Convert one format to another"
         container: convertx
     - DateTime:
-        href: https://datetime.domain.tld
+        href: https://service.domain.tld
         icon: sh-leantime.svg
-        server: <host>
+        Server: <server>
+        description: "Date and time tool"
         container: datetime
+    - HomeTube:
+        href: https://service.domain.tld
+        icon: sh-youtube-dl.svg
+        Server: <server>
+        description: "Youtube downloader and converter"
+        container: hometube
     - IT Tools:
-        href: https://ittools.domain.tld
+        href: https://service.domain.tld
         icon: sh-it-tools.svg
-        server: <host>
+        Server: <server>
+        description: "Various tools for various tasks"
         container: ittools
     - Omni Tools:
-        href: http://omnitools.domain.tld
+        href: https://service.domain.tld
         icon: sh-omnitools.webp
-        server: <host>
+        Server: <server>
+        description: "Various tools for various tasks"
         container: omni-tools
+
+##################################################
+##################################################
+- Bitwarden:
+    - Admin:
+        icon: sh-bitwarden.svg
+        href: https://service.domain.tld
+        Server: <server>
+        description: "Bitwarden Admin console"
+        container: bitwarden-admin
+    - API:
+        icon: sh-microsoft-azure.svg
+        Server: <server>
+        description: "Bitwarden API service"
+        container: bitwarden-api
+    - Attachments:
+        icon: sh-papra.svg
+        Server: <server>
+        description: "Bitwarden Attachments service"
+        container: bitwarden-attachments
+    - Events:
+        icon: sh-nextcloud-calendar.svg
+        Server: <server>
+        description: "Bitwarden Events service"
+        container: bitwarden-events
+    - Icons:
+        icon: sh-hashicorp-vault.svg
+        Server: <server>
+        description: "Bitwarden Icons service"
+        container: bitwarden-icons
+    - Identity:
+        icon: sh-google.svg
+        Server: <server>
+        description: "Bitwarden Identity service"
+        container: bitwarden-identity
+    - MSSQL:
+        icon: sh-microsoft-access.svg
+        Server: <server>
+        description: "Bitwarden MSSQL database"
+        container: bitwarden-mssql
+    - Nginx:
+        icon: sh-nginx.svg
+        Server: <server>
+        description: "Bitwarden Nginx reverse proxy"
+        container: bitwarden-nginx
+    - Notifications:
+        icon: sh-notifiarr.png
+        Server: <server>
+        description: "Bitwarden Notifications service"
+        container: bitwarden-notifications
+    - SSO:
+        icon: sh-microsoft.svg
+        Server: <server>
+        description: "Bitwarden SSO service"
+        container: bitwarden-sso
+    - Web:
+        icon: sh-web-check.png
+        href: https://service.domain.tld
+        Server: <server>
+        description: "Bitwarden Web Vault"
+        container: bitwarden-web
