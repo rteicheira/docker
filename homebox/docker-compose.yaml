@@ -15,8 +15,8 @@ services:
       HBOX_OPTIONS_ALLOW_ANALYTICS: ${HBOX_OPTIONS_ALLOW_ANALYTICS}
     volumes:
       - ${LOCALPATH}/homebox/:/data/
-    #ports:
-    #  - 3100:7745
+    ports:
+      - 3100:7745
 
 volumes:
    homebox-data:
