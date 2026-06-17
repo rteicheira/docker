@@ -11,12 +11,13 @@ services:
       HBOX_LOG_LEVEL: ${HBOX_LOG_LEVEL}
       HBOX_LOG_FORMAT: ${HBOX_LOG_FORMAT}
       HBOX_WEB_MAX_FILE_UPLOAD: ${HBOX_WEB_MAX_FILE_UPLOAD}
+      HBOX_AUTH_API_KEY_PEPPER: ${HBOX_AUTH_API_KEY_PEPPER}
     # Please consider allowing analytics to help us improve Homebox (basic computer information, no personal data)
       HBOX_OPTIONS_ALLOW_ANALYTICS: ${HBOX_OPTIONS_ALLOW_ANALYTICS}
     volumes:
       - ${LOCALPATH}/homebox/:/data/
-    ports:
-      - 3100:7745
+    #ports:
+    #  - 3100:7745
 
 volumes:
    homebox-data:
