@@ -24,4 +24,8 @@ One of the roadblocks I ran into was the app was giving me false information whe
 
 As a reminder, the WebDAV URL should only be the server and port, no share information. See the example below.
 
-![Sync setup with Generic WebDAV](webdav-steup.png "Sync setup with Generic WebDAV")
+<figure>
+    <img src="webdav-steup.png"
+         alt="Sync setup with Generic WebDAV">
+    <figcaption>As of lastGLANCE version 1.8.9</figcaption>
+</figure>
