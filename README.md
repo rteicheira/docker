@@ -37,9 +37,9 @@ The containers below are archived - no longer in active use or no longer being s
 
 | Directory | Description |
 | -- | -- |
-| [Firefly_iii](firefly_iii/) | *I am no longer using this container. **Still under active development.*** Personal finance manager for tracking income, expenses, and budgets. |
-| [Pi-hole](pihole/) | *I am no longer using this container. **Still under active development.*** Network-wide DNS-based ad and tracker blocker. |
-| [Vaultwarden](vaultwarden/) | *I have not started to use this and still am on the official Bitwarden self-hosted release. Still under active development.* Lightweight self-hosted Bitwarden-compatible password manager. |
+| [Firefly_iii](firefly_iii/) | *I am no longer using this container. **Under active development and support.*** Personal finance manager for tracking income, expenses, and budgets. |
+| [Pi-hole](pihole/) | *I am no longer using this container. **Under active development and support.*** Network-wide DNS-based ad and tracker blocker. |
+| [Vaultwarden](vaultwarden/) | *I have not started to use this and still am on the official Bitwarden self-hosted release. **Under active development and support.*** Lightweight self-hosted Bitwarden-compatible password manager. |
 | [Watchtower](watchtower/) | *Project is no longer receiving updates or support. I have switched to [Diun](diun/) with comparable functionality.* Automatically monitors and updates running Docker containers to the latest image. |
 
 ## Disclaimer
