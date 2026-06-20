@@ -32,6 +32,8 @@ As a reminder, the WebDAV URL should only be the server and port, no share infor
 
 ![Sync setup with Generic WebDAV](webdav-setup.png "Sync setup with Generic WebDAV")
 
+## Disclaimer
+
 > [!WARNING]
 > *No warranty or support provided. Use at your own risk.*
 > If you have issues, please visit the [developer's GitHub.](https://github.com/krelltunez/lastGLANCE/issues).

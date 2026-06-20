@@ -15,6 +15,8 @@
 
 This is here for archival purposes only. I haven't used this Docker Compose file in a few years. I played with Firefly for a bit, but found it didn't fit the use case I was trying to solve. It is also centric to the EU, so some things don't work as well for those using US based financial systems.
 
+## Disclaimer
+
 > [!WARNING]
 > *No warranty or support provided. Use at your own risk.*
 > If you have issues, please visit the [developer's GitHub.](https://github.com/orgs/firefly-iii/discussions).

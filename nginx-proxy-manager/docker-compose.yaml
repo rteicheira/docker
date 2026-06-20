@@ -1,6 +1,7 @@
 # Website: https://nginxproxymanager.com/
 # Container: https://hub.docker.com/r/jc21/nginx-proxy-manager
 # GitHub: https://github.com/NginxProxyManager/nginx-proxy-manager
+# No warranty or support provided. Use at your own risk.
 
 services:
   app:

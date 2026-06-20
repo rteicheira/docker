@@ -15,3 +15,8 @@ I am not the original author of this design idea. My inspiration came from [this
 
 ![Homepage screenshot 2](homepage-2.png)
 
+## Disclaimer
+
+> [!WARNING]
+> *No warranty or support provided. Use at your own risk.*
+> If you have issues, please visit the [developer's GitHub.](appNameGitHub).

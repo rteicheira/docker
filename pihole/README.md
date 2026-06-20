@@ -26,6 +26,8 @@ ProxNET is my main Docker network with access to each container managed through 
 
 *<Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.>*
 
+## Disclaimer
+
 > [!WARNING]
 > *No warranty or support provided. Use at your own risk.*
 > If you have issues, please visit the [developer's GitHub.](appNameGitHub).
