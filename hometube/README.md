@@ -11,7 +11,7 @@
 
 - [Website App](appNameWebsite)
 - [Docker Container](appNameDockContainer)
-- [GitHub Project](happNameGitHub)
+- [GitHub Project](appNameGitHub)
 - [My Docker Compose](docker-compose.yaml)
 
 ## My environment variables overview
@@ -28,4 +28,4 @@ ProxNET is my main Docker network with access to each container managed through 
 
 > [!WARNING]
 > *No warranty or support provided. Use at your own risk.*
-> If you have issues, please visit the [developer's GitHub.](happNameGitHub).
+> If you have issues, please visit the [developer's GitHub.](appNameGitHub).
