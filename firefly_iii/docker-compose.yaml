@@ -5,6 +5,9 @@
 #  - Importer: https://hub.docker.com/r/fireflyiii/data-importer
 #  - Cron: https://hub.docker.com/r/alpine
 # GitHub: https://github.com/firefly-iii/firefly-iii/
+#
+# docker-compose.yaml file url: https://github.com/rteicheira/docker/blob/main/firefly_iii/docker-compose.yaml
+# This docker-compose.yaml file is provided as-is and may require modifications to suit your environment.
 # No warranty or support provided, use at your own risk.
 
 services:

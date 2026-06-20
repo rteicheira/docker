@@ -1,6 +1,9 @@
 # Website: https://www.lastglance.app/
 # Container: https://ghcr.io/krelltunez/lastGLANCE
 # GitHub: https://github.com/krelltunez/lastGLANCE
+#
+# docker-compose.yaml file url: https://github.com/rteicheira/docker/blob/main/lastglance/docker-compose.yaml
+# This docker-compose.yaml file is provided as-is and may require modifications to suit your environment.
 # No warranty or support provided. Use at your own risk.
 
 services:
