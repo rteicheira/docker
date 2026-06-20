@@ -14,4 +14,4 @@ ProxNET is my main Docker network with access to each container managed through 
 
 > [!WARNING]
 > *No warranty or support provided. Use at your own risk.*
-> If you have issues, please visit the [developer's GitHub.](appNameGitHub).
+> If you have issues, please visit the [developer's GitHub](appNameGitHub).

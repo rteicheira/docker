@@ -148,4 +148,4 @@ location @tinyauth_login {
 
 > [!WARNING]
 > *No warranty or support provided. Use at your own risk.*
-> If you have issues, please visit the [NPM's GitHub.](https://github.com/NginxProxyManager/nginx-proxy-manager/discussions) or [Tinyauth's GitHub](https://github.com/tinyauthapp/tinyauth/discussions).
+> If you have issues, please visit the [NPM's GitHub](https://github.com/NginxProxyManager/nginx-proxy-manager/discussions) or [Tinyauth's GitHub](https://github.com/tinyauthapp/tinyauth/discussions).

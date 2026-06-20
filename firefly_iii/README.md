@@ -19,4 +19,4 @@ This is here for archival purposes only. I haven't used this Docker Compose file
 
 > [!WARNING]
 > *No warranty or support provided. Use at your own risk.*
-> If you have issues, please visit the [developer's GitHub.](https://github.com/orgs/firefly-iii/discussions).
+> If you have issues, please visit the [developer's GitHub](https://github.com/orgs/firefly-iii/discussions).

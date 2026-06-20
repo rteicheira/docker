@@ -19,4 +19,4 @@ I am not the original author of this design idea. My inspiration came from [this
 
 > [!WARNING]
 > *No warranty or support provided. Use at your own risk.*
-> If you have issues, please visit the [developer's GitHub.](appNameGitHub).
+> If you have issues, please visit the [developer's GitHub](appNameGitHub).
