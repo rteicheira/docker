@@ -25,7 +25,8 @@ I did have some issues getting the automated sync to work with my generic WebDAV
 
 The "Test Connection" button may report success even when sync is broken. The reliable indicator is the cloud icon on the main screen — if it's orange with a line through it, sync is not working regardless of what the test says.
 
-**⚠ Learning - check your browser's Developer Tools console for actual errors, as this will give you the real picture.**
+> [!INFO]
+> **Learning:** check your browser's Developer Tools console for actual errors, as this will give you the real picture.
 
 As a reminder, the WebDAV URL should only be the server and port, no share information. See the example below.
 
@@ -34,3 +35,7 @@ As a reminder, the WebDAV URL should only be the server and port, no share infor
          alt="Sync setup with Generic WebDAV">
     <figcaption>Image from lastGLANCE v1.8.9</figcaption>
 </figure>
+
+> [!WARNING]
+> *No warranty or support provided. Use at your own risk.*
+> If you have issues, please visit the [developer's GitHub.](https://github.com/krelltunez/lastGLANCE/issues).

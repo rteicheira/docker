@@ -1,7 +1,7 @@
 # Website: https://www.lastglance.app/
 # Container: https://ghcr.io/krelltunez/lastGLANCE
 # GitHub: https://github.com/krelltunez/lastGLANCE
-# No warrenty provided, use at your own risk.
+# No warranty or support provided. Use at your own risk.
 
 services:
   app:

@@ -5,6 +5,7 @@
 #  - Importer: https://hub.docker.com/r/fireflyiii/data-importer
 #  - Cron: https://hub.docker.com/r/alpine
 # GitHub: https://github.com/firefly-iii/firefly-iii/
+# No warranty or support provided, use at your own risk.
 
 services:
   app:
