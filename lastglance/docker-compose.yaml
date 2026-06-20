@@ -1,0 +1,16 @@
+# Website: https://www.lastglance.app/
+# Container: https://ghcr.io/krelltunez/lastGLANCE
+# GitHub: https://github.com/krelltunez/lastGLANCE
+
+services:
+  app:
+    image: ghcr.io/krelltunez/lastglance:latest
+    container_name: lastglance    
+    restart: unless-stopped
+    #ports:
+      #- "3000:80"
+
+networks:
+  default:
+    external: true
+    name: proxnet
