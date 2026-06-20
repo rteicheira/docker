@@ -9,7 +9,7 @@
 - [Website App](https://www.lastglance.app/)
 - [Docker Container](https://ghcr.io/krelltunez/lastGLANCE)
 - [GitHub Project](https://github.com/krelltunez/lastGLANCE)
-- [My Docker Compose](https://github.com/rteicheira/docker/blob/main/lastglance/docker-compose.yaml)
+- [My Docker Compose](docker-compose.yaml)
 
 ## My environment variables overview
 

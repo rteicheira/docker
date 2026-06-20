@@ -9,7 +9,7 @@
   - [Docker Container: Importer](https://hub.docker.com/r/fireflyiii/data-importer)
   - [Docker Container: Cron](https://hub.docker.com/r/alpine)
 - [GitHub Project](https://github.com/firefly-iii/firefly-iii/)
-- [My Docker Compose](https://github.com/rteicheira/docker/blob/main/firefly_iii/docker-compose.yaml)
+- [My Docker Compose](docker-compose.yaml)
 
 ## Information
 
