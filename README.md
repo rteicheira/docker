@@ -2,7 +2,7 @@
 
 Just a collection of Docker Compose files and their associated README files I have used/created as I learn, develop and use the Docker environment.
 
-![Docker environment](docker-env.png "Docker environment")
+![Docker environment](src/docker-env.png "Docker environment")
 
 ## Containers
 
