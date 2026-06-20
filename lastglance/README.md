@@ -28,13 +28,9 @@ The "Test Connection" button may report success even when sync is broken. The re
 > [!TIP]
 > Check your browser's Developer Tools console for actual errors, as this will give you the real picture.
 
-As a reminder, the WebDAV URL should only be the server and port, no share information. See the example below.
+As a reminder, the WebDAV URL should only be the server and port, no share information. See the example below (screenshot from lastGLANCE v1.8.9).
 
-<figure>
-    <img src="webdav-setup.png"
-         alt="Sync setup with Generic WebDAV">
-    <figcaption>Image from lastGLANCE v1.8.9</figcaption>
-</figure>
+![Sync setup with Generic WebDAV](webdav-setup.png "Sync setup with Generic WebDAV")
 
 > [!WARNING]
 > *No warranty or support provided. Use at your own risk.*
