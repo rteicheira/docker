@@ -7,7 +7,7 @@
 ## Project source links
 
 - [Website App](https://www.lastglance.app/)
-- [Docker Container](https://ghcr.io/krelltunez/lastGLANCE)
+- [Docker Container](https://ghcr.io/krelltunez/lastglance)
 - [GitHub Project](https://github.com/krelltunez/lastGLANCE)
 - [My Docker Compose](docker-compose.yaml)
 
@@ -17,7 +17,7 @@ No environment variables are required. All configuration is handled in-app.
 
 ## Network
 
-ProxNET is my main Docker network with access to each container managed through [Nginx Proxy Manager (NPM)](https://github.com/rteicheira/docker/blob/main/nginx-proxy-manager/docker-compose.yaml). This is why I have no ports defined in any of my compose files. Refer to the originals for each container's default port.
+ProxNET is my main Docker network with access to each container managed through [Nginx Proxy Manager (NPM)](https://github.com/rteicheira/docker/blob/main/nginx-proxy-manager/). This is why I have no ports defined in any of my compose files. Refer to the originals for each container's default port.
 
 ## In-app setup
 
@@ -30,7 +30,7 @@ The "Test Connection" button may report success even when sync is broken. The re
 
 As a reminder, the WebDAV URL should only be the server and port, no share information. See the example below (screenshot from lastGLANCE v1.8.9).
 
-![Sync setup with Generic WebDAV](webdav-setup.png "Sync setup with Generic WebDAV")
+![Sync setup with Generic WebDAV](assets/webdav-steup.png "Sync setup with Generic WebDAV")
 
 ## Disclaimer
 

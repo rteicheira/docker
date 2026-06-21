@@ -5,7 +5,7 @@
 # Tinyauth Container v4: https://ghcr.io/steveiliop56/tinyauth:v4
 # Tinyauth GitHub: https://github.com/tinyauthapp/tinyauth/
 #
-# docker-compose.yaml file url: https://github.com/rteicheira/docker/blob/main/nginx-proxy-manager/docker-compose.yaml
+# docker-compose.yaml file url: https://github.com/rteicheira/docker/blob/main/nginx-proxy-manager/
 # This docker-compose.yaml file is provided as-is and may require modifications to suit your environment.
 # No warranty or support provided. Use at your own risk.
 
