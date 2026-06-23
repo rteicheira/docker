@@ -18,7 +18,7 @@ services:
       - ${LOCALPATH}/homepage/:/app/config # Make sure your local config directory exists
       - ${LOCALPATH}/homepage/images/:/app/public/images # images directory
       - ${LOCALPATH}/homepage/images/icons/:/app/public/icons # icons directory
-      - ${LOCALPATH}/shared-icons/selfhost/icons:/app/public/sh-icons # selfhost icons directory
+      - ${LOCALPATH}/shared-icons/selfhost/icons/:/app/public/icons/sh # selfhost icons directory
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
     environment:
       HOMEPAGE_ALLOWED_HOSTS: ${HOMEPAGE_ALLOWED_HOSTS} # Needs to be set to the sub.domain.tld or IP address you will access Homepage from
