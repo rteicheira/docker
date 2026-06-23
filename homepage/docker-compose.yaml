@@ -1,6 +1,10 @@
 # Website: https://gethomepage.dev/
 # Container: https://ghcr.io/gethomepage/homepage
 # GitHub: https://github.com/gethomepage/homepage
+#
+# docker-compose.yaml file url: https://github.com/rteicheira/docker/blob/main/homepage/docker-compose.yaml
+# This docker-compose.yaml file is provided as-is and may require modifications to suit your environment.
+# No warranty or support provided. Use at your own risk.
 
 services:
   homepage:
@@ -12,8 +16,9 @@ services:
       #- 3000:3000
     volumes:
       - ${LOCALPATH}/homepage/:/app/config # Make sure your local config directory exists
-      - ${LOCALPATH}/homepage/images/:/app/public/images # images folder
-      - ${LOCALPATH}/homepage/images/icons/:/app/public/icons # icons folder
+      - ${LOCALPATH}/homepage/images/:/app/public/images # images directory
+      - ${LOCALPATH}/homepage/images/icons/:/app/public/icons # icons directory
+      - ${LOCALPATH}/shared-icons/selfhost/icons:/app/public/sh-icons # selfhost icons directory
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
     environment:
       HOMEPAGE_ALLOWED_HOSTS: ${HOMEPAGE_ALLOWED_HOSTS} # Needs to be set to the sub.domain.tld or IP address you will access Homepage from
