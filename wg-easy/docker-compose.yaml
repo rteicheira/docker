@@ -14,10 +14,11 @@ services:
       - SYS_MODULE
       - NET_ADMIN
     healthcheck:
-      test: /usr/bin/timeout 5s /bin/sh -c "/usr/bin/wg show | /bin/grep -q interface || exit 1"
-      interval: 1m
-      timeout: 5s
+      test: ["CMD", "ping", "-c", "3", "1.1.1.1"]
+      interval: 2m
+      timeout: 10s
       retries: 3
+      start_period: 30s
     ports:
       - "51820:51820/udp"
       #- "51821:51821/tcp"
@@ -39,6 +40,15 @@ services:
     networks:
       - default
       - nginprox
+
+  autoheal:
+    image: willfarrell/autoheal:latest
+    container_name: autoheal
+    restart: unless-stopped
+    environment:
+      - AUTOHEAL_CONTAINER_LABEL=all
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   etc_wireguard:
