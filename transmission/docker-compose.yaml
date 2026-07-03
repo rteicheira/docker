@@ -81,7 +81,7 @@ services:
     environment:
       - GLUETUN_CONTROL_URL=http://gluetun:8000
       # Uncomment if Gluetun auth is enabled:
-      #- GLUETUN_API_KEY=yourtoken
+      - GLUETUN_API_KEY=${GLUETUN_API_KEY}
       #- GLUETUN_USER=username
       #- GLUETUN_PASSWORD=password
       # Set to 'true' if behind a reverse proxy (nginx, Traefik, etc.)
