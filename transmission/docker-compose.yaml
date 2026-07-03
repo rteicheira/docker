@@ -12,6 +12,8 @@ services:
   transmission:
     image: lscr.io/linuxserver/transmission:latest
     container_name: transmission
+    labels:
+      - "autoheal=true"
     network_mode: service:gluetun
     depends_on:
       gluetun:
@@ -24,6 +26,12 @@ services:
       - ${LOCALPATH}/transmission/data/:/config # Data directory
       - ${LOCALPATH}/transmissions/:/downloads # Downloads directory
       - ${LOCALPATH}/transmissions/watch/:/watch # Watch directory
+    healthcheck:
+      test: ["CMD", "ping", "-c", "3", "1.1.1.1"]
+      interval: 2m
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     #ports:
     #  - 9091:9091
     #  - 51413:51413/tcp # Download port access for Transmission
@@ -60,6 +68,51 @@ services:
       #VPN_PORT_FORWARDING: ${VPN_PORT_FORWARDING}
       #VPN_PORT_FORWARDING_UP_COMMAND: ${VPN_PORT_FORWARDING_UP_COMMAND}
     restart: unless-stopped
+
+  gluetun-webui:
+    image: scuzza/gluetun-webui:latest
+    container_name: gluetun-webui
+    ports:
+      - 3000:3000
+    environment:
+      - GLUETUN_CONTROL_URL=http://gluetun:8000
+      # Uncomment if Gluetun auth is enabled:
+      #- GLUETUN_API_KEY=yourtoken
+      #- GLUETUN_USER=username
+      #- GLUETUN_PASSWORD=password
+      # Set to 'true' if behind a reverse proxy (nginx, Traefik, etc.)
+      #- TRUST_PROXY=false
+    
+    networks:
+      - vpn
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
+
+  autoheal:
+    image: willfarrell/autoheal:latest
+    container_name: autoheal
+    restart: unless-stopped
+    environment:
+      - AUTOHEAL_CONTAINER_LABEL=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
 networks:
   default:
