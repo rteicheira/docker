@@ -41,6 +41,8 @@ services:
   gluetun:
     image: qmcgaw/gluetun:latest
     container_name: gluetun
+    labels:
+      - "autoheal=false"
     cap_add:
       - NET_ADMIN
     devices:
@@ -72,6 +74,8 @@ services:
   gluetun-webui:
     image: scuzza/gluetun-webui:latest
     container_name: gluetun-webui
+    labels:
+      - "autoheal=false"
     ports:
       - 3000:3000
     environment:
