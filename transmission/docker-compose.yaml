@@ -1,12 +1,18 @@
 # Website: 
 #		Transmission: https://transmissionbt.com/
 #		Gluetun: https://github.com/qdm12/gluetun-wiki
+#   Gluetun WebUI: n/a
+#   Autoheal: n/a
 # Container: 
 #		Transmission: https://hub.docker.com/r/linuxserver/transmission
 #		Gluetun: https://hub.docker.com/r/qmcgaw/gluetun
+#   Gluetun WebUI: https://hub.docker.com/r/scuzza/gluetun-webui
+#   Autoheal: https://hub.docker.com/r/willfarrell/autoheal/
 # GitHub:
 #		Transmission: https://github.com/transmission/transmission
 #		Gluetun: https://github.com/qdm12/gluetun
+#   Gluetun WebUI: https://github.com/Thiago12097/gluetun-webui
+#   Autoheal: https://github.com/willfarrell/docker-autoheal
 
 services:
   transmission:
@@ -52,7 +58,7 @@ services:
       - 8388:8388/tcp # Shadowsocks for Gluetun
       - 8388:8388/udp # Shadowsocks for Gluetun
       - 9091:9091 # Web access for Transmission
-      - 8880:8000/tcp # Control Server
+      #- 8880:8000/tcp # Control Server
     volumes:
       - ${LOCALPATH}/gluetun/:/gluetun
       - ${LOCALPATH}/gluetun/config/config.toml:/gluetun/auth/config.toml

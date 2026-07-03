@@ -1,6 +1,12 @@
-# Website: n/a
-# Container: https://ghcr.io/wg-easy/wg-easy
-# GitHub: https://github.com/wg-easy/wg-easy
+# Website: 
+#		WG-Easy: n/a
+#   Autoheal: n/a
+# Container: 
+#		WG-Easy: https://ghcr.io/wg-easy/wg-easy
+#   Autoheal: https://hub.docker.com/r/willfarrell/autoheal/
+# GitHub:
+#		WG-Easy: https://github.com/wg-easy/wg-easy
+#   Autoheal: https://github.com/willfarrell/docker-autoheal
 
 services:
   wg-easy:
