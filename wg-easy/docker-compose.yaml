@@ -6,6 +6,8 @@ services:
   wg-easy:
     image: ghcr.io/wg-easy/wg-easy
     container_name: wg-easy
+    labels:
+      - "autoheal=true"
     restart: unless-stopped
     sysctls:
       - net.ipv4.ip_forward=1
@@ -46,7 +48,7 @@ services:
     container_name: autoheal
     restart: unless-stopped
     environment:
-      - AUTOHEAL_CONTAINER_LABEL=all
+      - AUTOHEAL_CONTAINER_LABEL=true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
