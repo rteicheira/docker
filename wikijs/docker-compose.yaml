@@ -25,7 +25,7 @@ services:
     container_name: wikijs-wiki
     restart: unless-stopped
     volumes:
-      - ${LOCALPATH}/wiki/data/:/data
+      - ${LOCALPATH}/wiki/data/:/wiki/data
     #ports:
       #- "8080:3000"
       #- "3443:3443"
