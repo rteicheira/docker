@@ -24,6 +24,8 @@ services:
     image: ghcr.io/requarks/wiki:2
     container_name: wikijs-wiki
     restart: unless-stopped
+    volumes:
+      - ${LOCALPATH}/wiki/export/:/wiki/data/export
     #ports:
       #- "8080:3000"
       #- "3443:3443"
@@ -44,6 +46,7 @@ services:
 
 volumes:
   db-data:
+  export:
 
 networks:
   default:
