@@ -11,7 +11,6 @@ services:
     restart: unless-stopped
     volumes:
       - ${LOCALPATH}/wiki/db-data/:/var/lib/postgresql/data
-      - ${LOCALPATH}/wiki/data/:/data
     logging:
       driver: local
     environment:
@@ -25,6 +24,8 @@ services:
     image: ghcr.io/requarks/wiki:2
     container_name: wikijs-wiki
     restart: unless-stopped
+    volumes:
+      - ${LOCALPATH}/wiki/data/:/data
     #ports:
       #- "8080:3000"
       #- "3443:3443"
