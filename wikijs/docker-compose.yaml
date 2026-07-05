@@ -11,6 +11,7 @@ services:
     restart: unless-stopped
     volumes:
       - ${LOCALPATH}/wiki/db-data/:/var/lib/postgresql/data
+      - ${LOCALPATH}/wiki/data/:/data
     logging:
       driver: local
     environment:
@@ -44,6 +45,7 @@ services:
 
 volumes:
   db-data:
+  data:
 
 networks:
   default:
