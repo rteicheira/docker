@@ -156,7 +156,7 @@ services:
 
   autoheal:
     image: willfarrell/autoheal:latest
-    container_name: autoheal-transmission
+    container_name: autoheal-dlm
     restart: unless-stopped
     environment:
       - AUTOHEAL_CONTAINER_LABEL=autoheal
