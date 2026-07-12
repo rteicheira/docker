@@ -1,15 +1,18 @@
 # Website: 
 #		Transmission: https://transmissionbt.com/
+#   Hometube: n/a
 #		Gluetun: https://github.com/qdm12/gluetun-wiki
 #   Gluetun WebUI: n/a
-#   Autoheal: n/a
+#   Autoheal README: https://github.com/willfarrell/docker-autoheal/blob/main/README.md
 # Container: 
 #		Transmission: https://hub.docker.com/r/linuxserver/transmission
+#		Hometube: https://ghcr.io/egalitarianmonkey/hometube
 #		Gluetun: https://hub.docker.com/r/qmcgaw/gluetun
 #   Gluetun WebUI: https://hub.docker.com/r/scuzza/gluetun-webui
 #   Autoheal: https://hub.docker.com/r/willfarrell/autoheal/
 # GitHub:
 #		Transmission: https://github.com/transmission/transmission
+#		Hometube: https://github.com/EgalitarianMonkey/hometube
 #		Gluetun: https://github.com/qdm12/gluetun
 #   Gluetun WebUI: https://github.com/Thiago12097/gluetun-webui
 #   Autoheal: https://github.com/willfarrell/docker-autoheal
@@ -42,6 +45,36 @@ services:
     #  - 9091:9091
     #  - 51413:51413/tcp # Download port access for Transmission
     #  - 51413:51413/udp # Download port access for Transmission
+    restart: unless-stopped
+
+  hometube:
+    image: ghcr.io/egalitarianmonkey/hometube:latest
+    container_name: hometube
+    labels:
+      - "autoheal=true"
+    network_mode: service:gluetun
+    depends_on:
+      gluetun:
+          condition: service_healthy
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      TZ: ${TZ}
+      UI_LANGUAGE: ${LANG}
+      LANGUAGE_PRIMARY: ${LANG}
+      VIDEOS_FOLDER: /data/videos
+      TMP_DOWNLOAD_FOLDER: /data/tmp
+      YOUTUBE_COOKIES_FILE_PATH: ${YOUTUBE_COOKIES_FILE_PATH}
+    volumes:
+      - type: bind
+        source: ${VIDEOS_FOLDER_DOCKER_HOST:?set VIDEOS_FOLDER_DOCKER_HOST}
+        target: /data/videos
+      - type: bind
+        source: ${TMP_DOWNLOAD_FOLDER_DOCKER_HOST:?set TMP_DOWNLOAD_FOLDER_DOCKER_HOST}
+        target: /data/tmp
+      - "${YOUTUBE_COOKIES_FILE_PATH_DOCKER_HOST}:/config/youtube_cookies.txt"
+    #ports:
+    #  - 8501:8501
     restart: unless-stopped
 
   gluetun:
