@@ -1,21 +1,18 @@
-# Website: 
-#		Transmission: https://transmissionbt.com/
-#   Hometube: n/a
-#		Gluetun: https://github.com/qdm12/gluetun-wiki
-#   Gluetun WebUI: n/a
-#   Autoheal README: https://github.com/willfarrell/docker-autoheal/blob/main/README.md
-# Container: 
-#		Transmission: https://hub.docker.com/r/linuxserver/transmission
-#		Hometube: https://ghcr.io/egalitarianmonkey/hometube
-#		Gluetun: https://hub.docker.com/r/qmcgaw/gluetun
-#   Gluetun WebUI: https://hub.docker.com/r/scuzza/gluetun-webui
-#   Autoheal: https://hub.docker.com/r/willfarrell/autoheal/
-# GitHub:
-#		Transmission: https://github.com/transmission/transmission
-#		Hometube: https://github.com/EgalitarianMonkey/hometube
-#		Gluetun: https://github.com/qdm12/gluetun
-#   Gluetun WebUI: https://github.com/Thiago12097/gluetun-webui
-#   Autoheal: https://github.com/willfarrell/docker-autoheal
+# Transmission: https://transmissionbt.com/
+#   Container: https://hub.docker.com/r/linuxserver/transmission
+#   GitHub Project: https://github.com/transmission/transmission
+# Hometube:
+#   Container: https://ghcr.io/egalitarianmonkey/hometube
+#   GitHub Project: https://github.com/EgalitarianMonkey/hometube
+# Gluetun: https://github.com/qdm12/gluetun-wiki
+#   Container: https://hub.docker.com/r/qmcgaw/gluetun
+#   GitHub Project: https://github.com/qdm12/gluetun
+# Gluetun WebUI:
+#   Container: https://hub.docker.com/r/scuzza/gluetun-webui
+#   GitHub Project: https://github.com/Thiago12097/gluetun-webui
+# Autoheal: https://github.com/willfarrell/docker-autoheal/blob/main/README.md
+#   Container: https://hub.docker.com/r/willfarrell/autoheal/
+#   GitHub Project: https://github.com/willfarrell/docker-autoheal
 
 services:
   transmission:
@@ -51,7 +48,7 @@ services:
     image: ghcr.io/egalitarianmonkey/hometube:latest
     container_name: hometube
     labels:
-      - "autoheal=true"
+      - "autoheal=false"
     network_mode: service:gluetun
     depends_on:
       gluetun:
