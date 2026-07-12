@@ -1,9 +1,9 @@
-# Nginx Proxy Manager (NPM) & Tinyauth README
+# Nginx Proxy Manager (NPM) + Tinyauth README
 
-## What is Nginx Proxy Manager & Tinyauth?
+## What is Nginx Proxy Manager + Tinyauth?
 
 > [!TIP]
-> For my setup NPM and Tinyauth are very integrated. To make my life easy, both containers are run from the same Docker Compose file.
+> For my setup, NPM and Tinyauth are very integrated. To make my life easy, both containers are run from the same Docker Compose file.
 
 [Nginx Proxy Manager](https://github.com/NginxProxyManager/nginx-proxy-manager) is a self-hosted reverse proxy based on Nginx. It allows you to manage reverse proxy hosts and SSL/TLS certificates for self-hosted applications.
 
@@ -14,47 +14,47 @@
 
 ## Project source links
 
-- [NPM Website](https://nginxproxymanager.com/)
-- [NPM Docker Container](https://hub.docker.com/r/jc21/nginx-proxy-manager)
-- [NPM GitHub Project](https://github.com/NginxProxyManager/nginx-proxy-manager)
-- [Tinyauth Website](https://tinyauth.app/)
-- [Tinyauth Docker Container v4](https://ghcr.io/steveiliop56/tinyauth:v4)
-- [Tinyauth GitHub Project](https://github.com/tinyauthapp/tinyauth/)
 - [My Docker Compose](docker-compose.yaml)
+- [NPM Website](https://nginxproxymanager.com/)
+  - [NPM Docker Container](https://hub.docker.com/r/jc21/nginx-proxy-manager)
+  - [NPM GitHub Project](https://github.com/NginxProxyManager/nginx-proxy-manager)
+- [Tinyauth Website](https://tinyauth.app/)
+  - [Tinyauth Docker Container v4](https://ghcr.io/steveiliop56/tinyauth:v4)
+  - [Tinyauth GitHub Project](https://github.com/tinyauthapp/tinyauth/)
 
 ## My environment variables overview
 
 ### NPM Specific
 
-| Variable | Description/Use |
-| - | - |
-| LOCALPATH | I define a volume path in all my Docker Compose files. This is used in the  `volumes` section of the YAML. |
-| DISABLE_IPV6 | To disable IPV6, set to `true`. |
-| X_FRAME_OPTIONS | The HTTP [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options) response header can be used to indicate whether a browser should be allowed to render the document in a \<frame>, \<iframe>, \<embed> or \<object>. For my use case I have this set to `sameorigin`. |
+| Variable | Default Value | Description |
+| -- | -- | -- |
+| `LOCALPATH` | n/a | I define a volume path in all my Docker Compose files. This is used in the  `volumes` section of the YAML. |
+| `DISABLE_IPV6` | `false` | To disable IPV6, set to `true`. |
+| `X_FRAME_OPTIONS` | unset | The HTTP [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options) response header can be used to indicate whether a browser should be allowed to render the document in a \<frame>, \<iframe>, \<embed> or \<object>. For my use case I have this set to `sameorigin`. |
 
 ### Tinyauth Specific
 
-| Variable | Description/Use |
-| - | - |
-| USER | The username you will use to login (cleartext) |
-| PASSWORD | The password for the users above. This will have to be the hash output from generating your username ([see below for how to generate the hash](#tinyauth-setup)). |
-| APP_URL | The public facing URL that will have the login screen. This should match the URL configured in NPM for the Tinyauth app itself (e.g. `https://auth.example.com`). |
-| APP_TITLE | Title when you open the app. |
-| LOGIN_MAX_RETRIES | The number of retries before account is locked. Numeric value. |
-| LOGIN_TIMEOUT | How long before the login is considered stale. Numeric value in seconds. |
-| SECURE_COOKIE | Use secure cookies or not. |
-| SESSION_EXPIRY | How long, in seconds, before the session is expired and a login needs to happen again. Numeric value. |
+| Variable | Default Value | Description |
+| -- | -- | -- |
+| `USER` | unset | The username you will use to login (cleartext) |
+| `PASSWORD` | unset | The password for the users above. This will have to be the hash output from generating your username ([see below for how to generate the hash](#tinyauth-setup)). |
+| `APP_URL` | unset | The public facing URL that will have the login screen. This should match the URL configured in NPM for the Tinyauth app itself (e.g. `https://auth.example.com`). |
+| `APP_TITLE` | unset | Title when you open the app. |
+| `LOGIN_MAX_RETRIES` | unset | The number of retries before account is locked. Numeric value. |
+| `LOGIN_TIMEOUT` | unset | How long before the login is considered stale. Numeric value in seconds. |
+| `SECURE_COOKIE` | unset | Use secure cookies or not. |
+| `SESSION_EXPIRY` | unset | How long, in seconds, before the session is expired and a login needs to happen again. Numeric value. |
 
 ## Network
 
 This is one of the few services I have that has exposed ports, as all traffic goes through NPM the administration and HTTP(s) ports need to be opened to allow traffic through to the self-hosted application.
 
 | Port | Description |
-| - | - |
-| 80:80 | Public HTTP Port |
-| 443:443 | Public HTTPS Port |
-| 81:81 | Admin Web Port |
-| 3000 | Tinyauth (internal only, not exposed externally) |
+| -- | -- |
+| 80:80 | Public HTTP Port. |
+| 443:443 | Public HTTPS Port. |
+| 81:81 | Admin Web Port. |
+| 3000 | Tinyauth (internal only, not exposed externally). |
 
 ## In-app setup
 

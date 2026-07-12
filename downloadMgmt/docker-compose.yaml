@@ -87,9 +87,9 @@ services:
       #- 8888:8888/tcp # HTTP proxy for Gluetun
       #- 8388:8388/tcp # Shadowsocks for Gluetun
       #- 8388:8388/udp # Shadowsocks for Gluetun
-      - 8501:8501 # Web access for Hometube
+      - 8501:8501 # Web access for HomeTube
       - 9091:9091 # Web access for Transmission
-      - 8880:8000/tcp # Control Server, needed for Homepage
+      - 8880:8000/tcp # Control server, needed for Homepage & Gluetun WebUI
     volumes:
       - ${LOCALPATH}/gluetun/:/gluetun
       - ${LOCALPATH}/gluetun/config/config.toml:/gluetun/auth/config.toml
