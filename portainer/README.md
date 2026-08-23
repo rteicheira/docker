@@ -1,33 +1,45 @@
-> [!WARNING]
-> Placeholder readme. More coming soon.
+# Portainer README
 
-# appName README
+## What is Portainer?
 
-## What is appName?
+[Portainer](https://github.com/portainer/portainer) is a lightweight container management platform that provides a graphical interface for administering Docker (and Swarm, Kubernetes, ACI) environments. I use it as my primary dashboard for managing containers, images, volumes, and networks, and for deploying stacks from Docker Compose files.
 
-[appName](appNameGitHub) is a self-hosted *<Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.>*.
+> [!NOTE]
+> Unlike the rest of my containers, Portainer isn't run from a `docker-compose.yaml` file — it's started directly with `docker run`, since it's effectively the tool I use to manage all my other stacks.
 
 ## Project source links
 
-- [Website App](appNameWebsite)
-- [Docker Container](appNameDockContainer)
-- [GitHub Project](appNameGitHub)
-- [My Docker Compose](docker-compose.yaml)
+- [Website](https://www.portainer.io/)
+- [Docker Container](https://hub.docker.com/r/portainer/portainer-ce)
+- [GitHub Project](https://github.com/portainer/portainer)
+- [My upgrade script](upgradeportainer.sh)
 
-## My environment variables overview
+## Running Portainer
 
-No environment variables are required. All configuration is handled in-app.
+```bash
+docker run -d \
+    -p 8000:8000 \
+    -p 9443:9443 \
+    --name portainer \
+    --restart=always \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v portainer_data:/data \
+    portainer/portainer-ce:lts
+```
 
 ## Network
 
-ProxNET is my main Docker network with access to each container managed through [Nginx Proxy Manager (NPM)](https://github.com/rteicheira/docker/blob/main/nginx-proxy-manager/docker-compose.yaml). This is why I have no ports defined in any of my compose files. Refer to the originals for each container's default port.
+| Port | Description |
+| -- | -- |
+| 8000:8000 | Edge agent tunnel port. |
+| 9443:9443 | HTTPS web UI. |
 
-## In-app setup
+## Upgrading
 
-*<Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.>*
+I use [upgradeportainer.sh](upgradeportainer.sh) to check for and apply updates. It detects whether `portainer` or `portainer_agent` is running, pulls the latest image, and if an update is available, recreates the container with the same options used above.
 
 ## Disclaimer
 
 > [!WARNING]
 > *No warranty or support provided. Use at your own risk.*
-> If you have issues, please visit the [developer's GitHub](appNameGitHub).
+> If you have issues, please visit the [developer's GitHub](https://github.com/portainer/portainer/discussions).

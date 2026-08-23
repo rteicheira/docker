@@ -14,7 +14,7 @@ A review of the environment variables I am using in my environment. This is not 
 | LOCALPATH | n/a | This is a defined value I use in my Docker environment to define where to store Docker Volumes. Not part of the project. |
 
 ## Network
-ProxNET is my main Docker network with access to each container managed through [Nginx Proxy Manager (NPM)](https://github.com/rteicheira/docker/blob/main/nginx-proxy-manager/docker-compose.yaml). This is why I have no ports defined in any of my compose files. Refer to the originals for each container's default port.
+ProxNET is my main Docker network with access to each container managed through [Nginx Proxy Manager (NPM)](https://github.com/rteicheira/docker/blob/main/nginx-proxy-manager/). This is why I have no ports defined in any of my compose files. Refer to the originals for each container's default port.
 
 ## Disclaimer
 

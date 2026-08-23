@@ -1,33 +1,28 @@
-> [!WARNING]
-> Placeholder readme. More coming soon.
+# Uptime Kuma README
 
-# appName README
+## What is Uptime Kuma?
 
-## What is appName?
-
-[appName](appNameGitHub) is a self-hosted *<Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.>*.
+[Uptime Kuma](https://github.com/louislam/uptime-kuma) is an easy-to-use, self-hosted monitoring tool. It tracks the uptime of HTTP(s), TCP, DNS, and other service types from a web dashboard and can send notifications through a wide range of channels when something goes down.
 
 ## Project source links
 
-- [Website App](appNameWebsite)
-- [Docker Container](appNameDockContainer)
-- [GitHub Project](appNameGitHub)
+- [Website](https://uptime.kuma.pet/)
+- [Docker Container](https://hub.docker.com/r/louislam/uptime-kuma)
+- [GitHub Project](https://github.com/louislam/uptime-kuma)
 - [My Docker Compose](docker-compose.yaml)
 
 ## My environment variables overview
 
-No environment variables are required. All configuration is handled in-app.
+| Variable | Default Value | Comments |
+| -- | -- | -- |
+| `LOCALPATH` | n/a | This is a defined value I use in my Docker environment to define where to store Docker Volumes. Not part of the project. |
 
 ## Network
 
-ProxNET is my main Docker network with access to each container managed through [Nginx Proxy Manager (NPM)](https://github.com/rteicheira/docker/blob/main/nginx-proxy-manager/docker-compose.yaml). This is why I have no ports defined in any of my compose files. Refer to the originals for each container's default port.
-
-## In-app setup
-
-*<Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.>*
+ProxNET is my main Docker network with access to each container managed through [Nginx Proxy Manager (NPM)](https://github.com/rteicheira/docker/blob/main/nginx-proxy-manager/). This is why I have no ports defined in any of my compose files. Refer to the originals for each container's default port.
 
 ## Disclaimer
 
 > [!WARNING]
 > *No warranty or support provided. Use at your own risk.*
-> If you have issues, please visit the [developer's GitHub](appNameGitHub).
+> If you have issues, please visit the [developer's GitHub](https://github.com/louislam/uptime-kuma/issues).
