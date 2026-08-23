@@ -6,18 +6,18 @@
 
 ## What is...?
 
-- [Karakeep](https://github.com/karakeep-app/karakeep) is the main web app and API.
+- [Karakeep & Chrome](https://github.com/karakeep-app/karakeep) is the main web app and API. Chrome runs headless and used to render pages, take screenshots when saving links.
 - [Meilisearch](https://github.com/meilisearch/meilisearch) provides the full-text search index used by Karakeep.
-- [Karakeep Chrome](https://github.com/Zenika/alpine-chrome) runs a headless, sandboxed Chromium instance Karakeep uses to render pages and take screenshots when saving links.
 
 ## Project source links
 
-- [Website](https://docs.karakeep.app/)
-- [Karakeep Container](https://ghcr.io/karakeep-app/karakeep)
-- [Chrome Container](https://ghcr.io/karakeep-app/karakeep-chrome)
-- [Meilisearch Container](https://hub.docker.com/r/getmeili/meilisearch)
-- [GitHub Project](https://github.com/karakeep-app/karakeep)
 - [My Docker Compose](docker-compose.yaml)
+
+| Project | Website | Container | GitHub Project |
+| -- | -- | -- | -- |
+| Karakeep | [Website](https://docs.karakeep.app/) | [Container](https://ghcr.io/karakeep-app/karakeep) | [GitHub Project](https://github.com/karakeep-app/karakeep) |
+| Chrome | [Website](https://docs.karakeep.app/) | [Container](https://ghcr.io/karakeep-app/karakeep-chrome) | [GitHub Project](https://github.com/karakeep-app/karakeep) |
+| Meilisearch | [Website](https://www.meilisearch.com/) | [Container](https://hub.docker.com/r/getmeili/meilisearch) | [GitHub Project](https://github.com/meilisearch/meilisearch) |
 
 ## My environment variables overview
 
