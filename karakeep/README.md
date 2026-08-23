@@ -8,12 +8,14 @@
 
 - [Karakeep](https://github.com/karakeep-app/karakeep) is the main web app and API.
 - [Meilisearch](https://github.com/meilisearch/meilisearch) provides the full-text search index used by Karakeep.
-- [Alpine Chrome](https://github.com/Zenika/alpine-chrome) runs a headless, sandboxed Chromium instance Karakeep uses to render pages and take screenshots when saving links.
+- [Karakeep Chrome](https://github.com/Zenika/alpine-chrome) runs a headless, sandboxed Chromium instance Karakeep uses to render pages and take screenshots when saving links.
 
 ## Project source links
 
 - [Website](https://docs.karakeep.app/)
-- [Docker Container](https://ghcr.io/karakeep-app/karakeep)
+- [Karakeep Container](https://ghcr.io/karakeep-app/karakeep)
+- [Chrome Container](https://ghcr.io/karakeep-app/karakeep-chrome)
+- [Meilisearch Container](https://hub.docker.com/r/getmeili/meilisearch)
 - [GitHub Project](https://github.com/karakeep-app/karakeep)
 - [My Docker Compose](docker-compose.yaml)
 

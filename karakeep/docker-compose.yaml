@@ -1,5 +1,7 @@
 # Website: https://docs.karakeep.app/
-# Container: https://ghcr.io/karakeep-app/karakeep
+# Karakeep Web: https://ghcr.io/karakeep-app/karakeep
+# Karakeep Chrome: https://ghcr.io/karakeep-app/karakeep-chrome
+# Meilisearch: https://hub.docker.com/r/getmeili/meilisearch
 # GitHub: https://github.com/karakeep-app/karakeep
 
 services:
