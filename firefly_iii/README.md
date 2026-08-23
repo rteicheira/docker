@@ -1,5 +1,8 @@
 # Firefly_iii README
 
+> [!CAUTION]
+> Archived
+
 ## Project source links
 
 - [Website](https://firefly-iii.org/)
