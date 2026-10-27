@@ -57,6 +57,7 @@ services:
       PUID: ${PUID}
       PGID: ${PGID}
       TZ: ${TZ}
+      DEBUG: ${DEBUG}
       UI_LANGUAGE: ${LANG}
       LANGUAGE_PRIMARY: ${LANG}
       VIDEOS_FOLDER: /data/videos
