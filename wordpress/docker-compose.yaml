@@ -1,0 +1,40 @@
+# Website: https://wordpress.com/
+# Container: 
+#  - WordPress: https://hub.docker.com/_/wordpress
+#  - DB: https://hub.docker.com/_/mysql
+# GitHub: https://github.com/docker-library/wordpress
+
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: ${WEB_CONTAINER}
+    volumes:
+      - ${LOCALPATH}/${WEBSITE}/wp-content:/var/www/html/wp-content
+      - ${LOCALPATH}/${WEBSITE}/.htaccess:/var/www/html/.htaccess
+    environment:
+      - WORDPRESS_DB_NAME=${DB_NAME}
+      - WORDPRESS_TABLE_PREFIX=wp_
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=${DB_USER}
+      - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
+    depends_on:
+      - db
+    restart: unless-stopped
+    ports:
+      - 8095:80
+      - 8096:443
+
+  db:
+    image: mysql:8.0
+    container_name: ${DB_CONTAINER}
+    volumes:
+      - ${LOCALPATH}/${WEBSITE}/db_data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    restart: unless-stopped
+
+volumes:
+  db_data:

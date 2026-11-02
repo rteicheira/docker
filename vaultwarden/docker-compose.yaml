@@ -1,4 +1,23 @@
-# Website: 
-# Container: 
-# GitHub: 
+# Website: https://github.com/dani-garcia/vaultwarden/wiki
+# Container: https://hub.docker.com/r/vaultwarden/server
+# GitHub: https://github.com/dani-garcia/vaultwarden
 
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    #ports:
+    #  - 11001:80
+    environment:
+      TZ: ${TZ}
+      DOMAIN: ${DOMAIN}
+      SIGNUPS_ALLOWED: ${SIGNUPS_ALLOWED}
+      ADMIN_TOKEN: ${ADMIN_TOKEN}
+    volumes:
+      - ${LOCALPATH}/vaultwarden/:/data
+
+networks:
+  default:
+    external: true
+    name: proxnet
