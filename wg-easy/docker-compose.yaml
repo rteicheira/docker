@@ -49,15 +49,6 @@ services:
       - default
       - nginprox
 
-  autoheal:
-    image: willfarrell/autoheal:latest
-    container_name: autoheal
-    restart: unless-stopped
-    environment:
-      - AUTOHEAL_CONTAINER_LABEL=autoheal
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-
 volumes:
   etc_wireguard:
 

@@ -10,9 +10,6 @@
 # Gluetun WebUI:
 #   Container: https://hub.docker.com/r/scuzza/gluetun-webui
 #   GitHub Project: https://github.com/Thiago12097/gluetun-webui
-# Autoheal: https://github.com/willfarrell/docker-autoheal/blob/main/README.md
-#   Container: https://hub.docker.com/r/willfarrell/autoheal/
-#   GitHub Project: https://github.com/willfarrell/docker-autoheal
 
 services:
   transmission:
@@ -154,15 +151,6 @@ services:
       options:
         max-size: "50m"
         max-file: "3"
-
-  autoheal:
-    image: willfarrell/autoheal:latest
-    container_name: autoheal-dlm
-    restart: unless-stopped
-    environment:
-      - AUTOHEAL_CONTAINER_LABEL=autoheal
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
 
 networks:
   default:
