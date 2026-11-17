@@ -2,6 +2,7 @@
 #   Container: https://hub.docker.com/r/willfarrell/autoheal/
 #   GitHub Project: https://github.com/willfarrell/docker-autoheal
 
+services:
   autoheal:
     image: willfarrell/autoheal:latest
     container_name: autoheal
